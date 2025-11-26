@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,19 +33,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  openGraph: {
-    type: 'website',
-    locale: 'ko_KR',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com',
-    siteName: 'ESGyo',
-    title: 'ESGyo - 탄소 배출량 계산 및 진단',
-    description: '개인 및 기업을 위한 탄소 배출량 계산 및 ESG 진단 서비스',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ESGyo - 탄소 배출량 계산 및 진단',
-    description: '개인 및 기업을 위한 탄소 배출량 계산 및 ESG 진단 서비스',
-  },
+    openGraph: {
+      type: 'website',
+      locale: 'ko_KR',
+      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com',
+      siteName: 'ESGyo',
+      title: 'ESGyo - 탄소중립포인트 계산기',
+      description: '올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'ESGyo - 탄소중립포인트 계산기',
+      description: '올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.',
+    },
   robots: {
     index: true,
     follow: true,
@@ -67,7 +69,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

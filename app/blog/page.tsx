@@ -15,16 +15,40 @@ export default function BlogPage() {
     {
       title: '탄소중립포인트로 연간 7만원 받은 후기',
       excerpt: '텀블러 사용과 대중교통 이용만으로도 연간 7만원의 포인트를 받을 수 있었던 실제 경험을 공유합니다.',
+      content: `작년 한 해 동안 탄소중립포인트 제도를 활용하여 연간 7만원의 포인트를 받을 수 있었습니다. 
+      특별한 노력을 하지 않고도 일상 속 작은 실천만으로 이 정도의 포인트를 받을 수 있다는 것을 직접 경험했습니다.
+      
+      주로 텀블러 사용과 대중교통 이용을 통해 포인트를 받았는데, 주 3-4회 정도 텀블러를 사용하고 
+      월 평균 100km 정도 대중교통을 이용했습니다. 이렇게 꾸준히 실천한 결과 연간 약 7만원의 포인트를 받을 수 있었습니다.
+      
+      포인트는 제휴 은행 포인트로 전환하여 사용했는데, 매우 간편하게 전환할 수 있었습니다. 
+      앞으로도 계속 실천하여 더 많은 포인트를 받을 계획입니다.`,
       date: '2025-01-15',
     },
     {
       title: '스타벅스 텀블러 할인과 탄소중립포인트 중복 받는 방법',
       excerpt: '카페 할인과 정부 포인트를 동시에 받는 꿀팁을 알려드립니다.',
+      content: `많은 분들이 궁금해하시는 부분인데, 스타벅스 텀블러 할인과 탄소중립포인트는 중복으로 받을 수 있습니다.
+      
+      스타벅스에서는 텀블러를 가져오면 음료 가격에서 일정 금액을 할인해주는데, 이는 카페의 정책입니다. 
+      반면 탄소중립포인트는 정부에서 운영하는 제도로, 두 제도는 완전히 별개입니다.
+      
+      따라서 스타벅스에서 텀블러 할인을 받으면서 동시에 환경부에 탄소중립포인트를 신청하면 
+      할인 혜택과 포인트를 모두 받을 수 있습니다. 이는 친환경 실천을 장려하는 좋은 방법이므로 적극 활용하시기 바랍니다.`,
       date: '2025-01-10',
     },
     {
       title: '대중교통 이용으로 환경도 지키고 포인트도 받기',
       excerpt: '승용차 대신 대중교통을 이용하면 환경도 지키고 포인트도 받을 수 있는 방법을 소개합니다.',
+      content: `승용차 대신 대중교통을 이용하면 환경도 지키고 탄소중립포인트도 받을 수 있습니다.
+      
+      대중교통 이용 거리 1km당 5포인트를 받을 수 있는데, 월 100km만 이용해도 연간 6,000원의 포인트를 받을 수 있습니다. 
+      통근 거리가 긴 분들이라면 더 많은 포인트를 받을 수 있습니다.
+      
+      교통카드 사용 내역이나 대중교통 앱의 이용 기록을 통해 거리를 확인할 수 있으며, 
+      환경부 앱에 이 정보를 연동하거나 수동으로 입력하여 신청할 수 있습니다.
+      
+      대중교통 이용은 환경 보호에도 도움이 되고 포인트도 받을 수 있어 일석이조입니다.`,
       date: '2025-01-05',
     },
   ];
@@ -44,11 +68,14 @@ export default function BlogPage() {
         {posts.map((post, index) => (
           <div key={index}>
             <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex justify-between items-start mb-2">
+              <div className="flex justify-between items-start mb-4">
                 <h2 className="text-2xl font-bold">{post.title}</h2>
-                <span className="text-sm text-gray-500">{post.date}</span>
+                <span className="text-sm text-gray-500 whitespace-nowrap ml-4">{post.date}</span>
               </div>
-              <p className="text-gray-700 mb-4">{post.excerpt}</p>
+              <p className="text-gray-700 mb-4 leading-relaxed">{post.excerpt}</p>
+              <div className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                {post.content.split('\n').slice(0, 3).join(' ')}
+              </div>
               <Button variant="outline" size="sm">
                 더 읽기 →
               </Button>

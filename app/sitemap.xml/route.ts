@@ -14,6 +14,8 @@ export async function GET() {
     '/guide',
     '/tips',
     '/blog',
+    '/about',
+    '/contact',
     '/privacy',
     '/terms',
   ];

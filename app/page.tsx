@@ -21,10 +21,10 @@ export default function Home() {
         />
         
         <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg p-8 shadow-lg">
-          <p className="text-2xl font-bold mb-2">
+          <p className="text-2xl md:text-3xl font-bold mb-2">
             연간 최대 70,000원까지 받을 수 있어요!
           </p>
-          <p className="text-green-50">
+          <p className="text-green-50 text-base md:text-lg">
             텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 포인트를 받아보세요
           </p>
         </div>
@@ -66,27 +66,30 @@ export default function Home() {
 
       {/* 주요 기능 소개 */}
       <div className="grid md:grid-cols-3 gap-6 mt-12">
-        <Card className="p-6 text-center">
+        <Card className="p-6 text-center hover:shadow-lg transition-shadow">
           <div className="text-4xl mb-4">🧮</div>
-          <h3 className="text-xl font-bold mb-2">정확한 계산</h3>
-          <p className="text-gray-600 text-sm">
-            환경부 기준으로 실제 받을 수 있는 포인트를 정확히 계산해드립니다
+          <h3 className="text-xl font-bold mb-3">정확한 계산</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            환경부 기준으로 실제 받을 수 있는 포인트를 정확히 계산해드립니다. 
+            텀블러 사용, 대중교통 이용 등 다양한 활동을 입력하면 즉시 예상 포인트를 확인할 수 있습니다.
           </p>
         </Card>
         
-        <Card className="p-6 text-center">
+        <Card className="p-6 text-center hover:shadow-lg transition-shadow">
           <div className="text-4xl mb-4">📖</div>
-          <h3 className="text-xl font-bold mb-2">신청 가이드</h3>
-          <p className="text-gray-600 text-sm">
-            복잡한 정부 제도를 3분 요약으로 쉽게 이해하고 신청할 수 있습니다
+          <h3 className="text-xl font-bold mb-3">신청 가이드</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            복잡한 정부 제도를 3분 요약으로 쉽게 이해하고 신청할 수 있습니다. 
+            자주 묻는 질문과 답변을 통해 신청 과정을 단계별로 안내해드립니다.
           </p>
         </Card>
         
-        <Card className="p-6 text-center">
+        <Card className="p-6 text-center hover:shadow-lg transition-shadow">
           <div className="text-4xl mb-4">💡</div>
-          <h3 className="text-xl font-bold mb-2">절약 팁</h3>
-          <p className="text-gray-600 text-sm">
-            일상 속에서 쉽게 실천할 수 있는 절약 팁과 추가 포인트 받는 방법을 알려드립니다
+          <h3 className="text-xl font-bold mb-3">절약 팁</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            일상 속에서 쉽게 실천할 수 있는 절약 팁과 추가 포인트 받는 방법을 알려드립니다. 
+            전기요금, 가스요금 절약 계산기도 함께 제공합니다.
           </p>
         </Card>
       </div>
