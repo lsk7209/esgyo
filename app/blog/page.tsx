@@ -67,16 +67,16 @@ export default function BlogPage() {
       <div className="space-y-6">
         {posts.map((post, index) => (
           <div key={index}>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex justify-between items-start mb-4">
-                <h2 className="text-2xl font-bold">{post.title}</h2>
-                <span className="text-sm text-gray-500 whitespace-nowrap ml-4">{post.date}</span>
+            <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 gap-2">
+                <h2 className="text-xl sm:text-2xl font-bold leading-tight">{post.title}</h2>
+                <span className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">{post.date}</span>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">{post.excerpt}</p>
-              <div className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+              <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed">{post.excerpt}</p>
+              <div className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-3">
                 {post.content.split('\n').slice(0, 3).join(' ')}
               </div>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="min-h-[36px]">
                 더 읽기 →
               </Button>
             </Card>
@@ -93,17 +93,19 @@ export default function BlogPage() {
       <AdSenseSlot slotId="blog-bottom" className="my-8" />
 
       {/* CTA */}
-      <div className="mt-12 text-center space-y-4">
-        <Link href="/calculator">
-          <Button size="lg" className="bg-green-600 hover:bg-green-700">
-            내 포인트 계산하기
-          </Button>
-        </Link>
-        <Link href="/guide">
-          <Button variant="outline" size="lg" className="ml-4">
-            신청 가이드 보기
-          </Button>
-        </Link>
+      <div className="mt-8 sm:mt-12 text-center space-y-3 sm:space-y-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <Link href="/calculator" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 min-h-[44px]">
+              내 포인트 계산하기
+            </Button>
+          </Link>
+          <Link href="/guide" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto min-h-[44px]">
+              신청 가이드 보기
+            </Button>
+          </Link>
+        </div>
       </div>
     </PageContainer>
   );

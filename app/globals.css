@@ -133,9 +133,27 @@
   }
   
   /* 모바일 최적화 */
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     body {
       font-size: 15px;
+    }
+    
+    /* 모바일에서 터치 타겟 최소 크기 보장 */
+    button, a, input, select, textarea {
+      min-height: 44px;
+    }
+    
+    /* 모바일에서 텍스트 오버플로우 방지 */
+    h1, h2, h3, h4, h5, h6 {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+  }
+  
+  /* 태블릿 최적화 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    body {
+      font-size: 15.5px;
     }
   }
 }

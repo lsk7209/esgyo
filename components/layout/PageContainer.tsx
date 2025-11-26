@@ -24,8 +24,8 @@ export default function PageContainer({
   className = '' 
 }: PageContainerProps) {
   return (
-    <div className={`bg-gray-50 py-8 px-4 ${className}`}>
-      <div className={`${maxWidthClasses[maxWidth]} mx-auto space-y-6`}>
+    <div className={`bg-gray-50 py-4 sm:py-6 md:py-8 px-3 sm:px-4 md:px-6 ${className}`}>
+      <div className={`${maxWidthClasses[maxWidth]} mx-auto space-y-4 sm:space-y-6`}>
         {children}
       </div>
     </div>

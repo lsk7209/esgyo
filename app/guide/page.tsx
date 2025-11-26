@@ -72,10 +72,10 @@ export default function GuidePage() {
         <AdSenseSlot slotId="guide-top" className="my-8" />
 
         {/* FAQ 섹션 */}
-        <div className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">탄소중립포인트는 어떻게 신청하나요?</h2>
-            <div className="text-gray-700 mb-4 space-y-3 leading-relaxed">
+        <div className="space-y-4 sm:space-y-6">
+          <Card className="p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">탄소중립포인트는 어떻게 신청하나요?</h2>
+            <div className="text-sm sm:text-base text-gray-700 mb-4 space-y-3 leading-relaxed">
               <p>
                 환경부 탄소중립포인트 앱을 다운로드하거나 웹사이트에 접속하여 회원가입 후 신청할 수 있습니다. 
                 텀블러 사용, 대중교통 이용 등 친환경 활동을 실천하고 관련 증빙 자료를 제출하면 자동으로 포인트가 적립됩니다.
@@ -90,16 +90,16 @@ export default function GuidePage() {
                 현금으로 환급받을 수 있습니다. 연간 최대 70,000원까지 받을 수 있으니, 꾸준히 실천하시면 좋습니다.
               </p>
             </div>
-            <Link href="/calculator" className="text-green-600 hover:underline font-semibold">
+            <Link href="/calculator" className="text-sm sm:text-base text-green-600 hover:underline font-semibold inline-block">
               → 내가 받을 수 있는 포인트 계산하기
             </Link>
           </Card>
 
-          <AdSenseSlot slotId="guide-middle-1" className="my-6" />
+          <AdSenseSlot slotId="guide-middle-1" className="my-4 sm:my-6" />
 
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">스타벅스 텀블러 할인과 중복되나요?</h2>
-            <div className="text-gray-700 mb-4 space-y-3 leading-relaxed">
+          <Card className="p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">스타벅스 텀블러 할인과 중복되나요?</h2>
+            <div className="text-sm sm:text-base text-gray-700 mb-4 space-y-3 leading-relaxed">
               <p>
                 네, 중복 가능합니다. 스타벅스에서 텀블러 할인을 받으면서 동시에 탄소중립포인트도 신청할 수 있습니다. 
                 두 제도는 별개로 운영되므로 모두 혜택을 받을 수 있습니다.
@@ -115,49 +115,49 @@ export default function GuidePage() {
                 이는 친환경 실천을 장려하는 좋은 방법이므로 적극 활용하시기 바랍니다.
               </p>
             </div>
-            <Link href="/tips" className="text-green-600 hover:underline font-semibold">
+            <Link href="/tips" className="text-sm sm:text-base text-green-600 hover:underline font-semibold inline-block">
               → 더 많은 절약 팁 보기
             </Link>
           </Card>
 
-          <AdSenseSlot slotId="guide-middle-2" className="my-6" />
+          <AdSenseSlot slotId="guide-middle-2" className="my-4 sm:my-6" />
 
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">탄소중립포인트는 어디서 사용할 수 있나요?</h2>
-            <p className="text-gray-700 mb-4">
+          <Card className="p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">탄소중립포인트는 어디서 사용할 수 있나요?</h2>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
               탄소중립포인트는 제휴 은행(국민은행, 신한은행 등)과 카드사(삼성카드, 신한카드 등)의 포인트로 전환하거나, 
               현금으로 환급받을 수 있습니다. 1포인트 = 1원 기준으로 환산됩니다.
             </p>
           </Card>
 
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">연간 최대 얼마까지 받을 수 있나요?</h2>
-            <p className="text-gray-700 mb-4">
+          <Card className="p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">연간 최대 얼마까지 받을 수 있나요?</h2>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
               탄소중립포인트는 연간 최대 70,000포인트(70,000원)까지 받을 수 있습니다. 
               다양한 친환경 활동을 실천하면 상한선까지 포인트를 받을 수 있습니다.
             </p>
-            <Link href="/calculator" className="text-green-600 hover:underline font-semibold">
+            <Link href="/calculator" className="text-sm sm:text-base text-green-600 hover:underline font-semibold inline-block">
               → 내 예상 포인트 계산하기
             </Link>
           </Card>
 
-          <AdSenseSlot slotId="guide-middle-3" className="my-6" />
+          <AdSenseSlot slotId="guide-middle-3" className="my-4 sm:my-6" />
 
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">대중교통 이용 거리는 어떻게 확인하나요?</h2>
-            <p className="text-gray-700 mb-4">
+          <Card className="p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">대중교통 이용 거리는 어떻게 확인하나요?</h2>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
               대중교통 이용 거리는 교통카드 사용 내역이나 대중교통 앱의 이용 기록을 통해 확인할 수 있습니다. 
               환경부 앱에 이 정보를 연동하거나 수동으로 입력하여 신청할 수 있습니다.
             </p>
           </Card>
 
           {/* 제휴 은행/카드사 안내 */}
-          <Card className="p-6 bg-blue-50">
-            <h2 className="text-2xl font-bold mb-4">제휴 은행 및 카드사</h2>
-            <div className="grid md:grid-cols-2 gap-4">
+          <Card className="p-4 sm:p-6 bg-blue-50">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">제휴 은행 및 카드사</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <h3 className="font-semibold mb-2">제휴 은행</h3>
-                <ul className="space-y-1 text-gray-700">
+                <h3 className="font-semibold mb-2 text-sm sm:text-base">제휴 은행</h3>
+                <ul className="space-y-1 text-xs sm:text-sm text-gray-700">
                   <li>• 국민은행</li>
                   <li>• 신한은행</li>
                   <li>• 우리은행</li>
@@ -165,8 +165,8 @@ export default function GuidePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">제휴 카드사</h3>
-                <ul className="space-y-1 text-gray-700">
+                <h3 className="font-semibold mb-2 text-sm sm:text-base">제휴 카드사</h3>
+                <ul className="space-y-1 text-xs sm:text-sm text-gray-700">
                   <li>• 삼성카드</li>
                   <li>• 신한카드</li>
                   <li>• KB국민카드</li>
@@ -174,7 +174,7 @@ export default function GuidePage() {
                 </ul>
               </div>
             </div>
-            <p className="text-sm text-gray-600 mt-4">
+            <p className="text-xs sm:text-sm text-gray-600 mt-4 leading-relaxed">
               * 제휴 기관은 변경될 수 있으니 환경부 공식 사이트에서 최신 정보를 확인하세요.
             </p>
           </Card>
@@ -184,17 +184,19 @@ export default function GuidePage() {
         <AdSenseSlot slotId="guide-bottom" className="my-8" />
 
         {/* CTA */}
-        <div className="mt-12 text-center space-y-4">
-          <Link href="/calculator">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700">
-              내 포인트 계산하기
-            </Button>
-          </Link>
-          <Link href="/tips">
-            <Button variant="outline" size="lg" className="ml-4">
-              절약 팁 보기
-            </Button>
-          </Link>
+        <div className="mt-8 sm:mt-12 text-center space-y-3 sm:space-y-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/calculator" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 min-h-[44px]">
+                내 포인트 계산하기
+              </Button>
+            </Link>
+            <Link href="/tips" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto min-h-[44px]">
+                절약 팁 보기
+              </Button>
+            </Link>
+          </div>
         </div>
       </PageContainer>
     </>
