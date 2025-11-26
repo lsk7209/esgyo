@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ESGyo - 탄소 배출량 계산 및 진단",
+    default: "ESGyo - 탄소중립포인트 계산기",
     template: "%s | ESGyo"
   },
-  description: "개인 및 기업을 위한 탄소 배출량 계산 및 ESG 진단 서비스. 탄소중립포인트 계산, Scope 1·2 배출량 진단, ESG 리포트 생성",
-  keywords: ["ESG", "탄소 배출량", "탄소중립포인트", "환경", "지속가능성", "배출량 계산", "ESG 진단"],
+  description: "올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.",
+  keywords: ["탄소중립포인트", "탄소중립 포인트 계산기", "환경부 포인트", "탄소 포인트 현금", "환경 앱테크", "텀블러 할인", "전기요금 절약", "대중교통 탄소 절감"],
   authors: [{ name: "ESGyo" }],
   creator: "ESGyo",
   publisher: "ESGyo",
