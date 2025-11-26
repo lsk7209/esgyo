@@ -11,12 +11,12 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description, className = '' }: PageHeaderProps) {
   return (
-    <div className={`text-center space-y-2 sm:space-y-3 ${className}`}>
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight px-2">
+    <div className={`text-center space-y-3 sm:space-y-4 ${className}`}>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
         {title}
       </h1>
       {description && (
-        <p className="text-sm sm:text-base text-gray-600 px-2 leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2">
           {description}
         </p>
       )}

@@ -14,12 +14,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
-      <div className="container mx-auto px-3 sm:px-4">
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm shadow-sm">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex h-14 sm:h-16 items-center justify-between">
-          <div className="flex items-center space-x-4 sm:space-x-8">
-            <Link href="/" className="flex items-center space-x-2 min-w-[80px]">
-              <span className="text-xl sm:text-2xl font-bold text-green-600">ESGyo</span>
+          <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
+            <Link href="/" className="flex items-center space-x-2 min-w-[80px] sm:min-w-[100px] group">
+              <span className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent group-hover:from-green-700 group-hover:to-emerald-700 transition-all duration-200">
+                ESGyo
+              </span>
             </Link>
             
             <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
