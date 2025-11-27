@@ -1059,6 +1059,386 @@ const gasSavingPost: BlogPost = {
   ],
 };
 
+// 6. 탄소중립포인트 현금화 방법 완벽 가이드
+const cashoutGuidePost: BlogPost = {
+  id: 'carbon-point-cashout-guide',
+  slug: '탄소중립포인트-현금화-방법-완벽-가이드',
+  type: 'blog',
+  title: '탄소중립포인트 현금화 방법 완벽 가이드',
+  description: '탄소중립포인트를 현금으로 전환하는 모든 방법을 알려드립니다. 제휴 은행 계좌로 현금 전환, 카드사 포인트 전환, 기부 등 다양한 현금화 방법을 단계별로 설명합니다.',
+  metaTitle: '탄소중립포인트 현금화 방법 완벽 가이드 | 이에스지요',
+  metaDescription: '탄소중립포인트를 현금으로 전환하는 모든 방법을 알려드립니다. 제휴 은행 계좌로 현금 전환, 카드사 포인트 전환, 기부 등 다양한 현금화 방법을 단계별로 설명합니다.',
+  keywords: ['탄소중립포인트 현금화', '포인트 현금 전환', '환경부 포인트 환급', '탄소 포인트 현금', '포인트 환전'],
+  category: 'carbon-point',
+  publishedAt: new Date().toISOString().split('T')[0],
+  status: 'published',
+  tags: ['탄소중립포인트', '현금화', '환급', '포인트 전환'],
+  author: '이에스지요',
+  readingTime: 6,
+  viewCount: 0,
+  featured: true,
+  content: '',
+  summary: {
+    question: '탄소중립포인트를 현금으로 전환하는 방법은?',
+    answer: '환경부 탄소중립포인트 앱에서 제휴 은행 계좌로 현금 전환하거나, 제휴 카드사 포인트로 전환할 수 있습니다. 1포인트 = 1원 기준으로 전환되며, 최소 전환 단위는 앱에서 확인할 수 있습니다.'
+  },
+  sections: [
+    {
+      title: '탄소중립포인트 현금화란?',
+      content: `
+        <p>탄소중립포인트 현금화는 적립된 포인트를 실제 현금이나 사용 가능한 포인트로 전환하는 과정입니다. 환경부 탄소중립포인트 앱을 통해 간단하게 현금화할 수 있으며, 여러 방법이 있습니다.</p>
+        
+        <p><strong>현금화 가능한 방법:</strong></p>
+        <ul class="content-list">
+          <li>제휴 은행 계좌로 현금 전환 (1포인트 = 1원)</li>
+          <li>제휴 카드사 포인트로 전환</li>
+          <li>환경 관련 기관에 기부</li>
+        </ul>
+      `,
+    },
+    {
+      title: '1단계: 제휴 은행 계좌 등록',
+      content: `
+        <p>현금으로 전환하려면 먼저 제휴 은행 계좌를 등록해야 합니다.</p>
+        
+        <p><strong>제휴 은행 목록:</strong></p>
+        <ul class="content-list">
+          <li>국민은행</li>
+          <li>신한은행</li>
+          <li>우리은행</li>
+          <li>하나은행</li>
+          <li>기업은행</li>
+          <li>NH농협은행</li>
+        </ul>
+        
+        <p><strong>계좌 등록 방법:</strong></p>
+        <ol class="content-list">
+          <li>환경부 탄소중립포인트 앱 실행</li>
+          <li>"포인트 사용" 또는 "현금 전환" 메뉴 선택</li>
+          <li>"계좌 등록" 선택</li>
+          <li>은행 선택 및 계좌번호 입력</li>
+          <li>본인 인증 완료</li>
+        </ol>
+        
+        <p>계좌 등록은 한 번만 하면 되며, 이후에는 바로 현금 전환이 가능합니다.</p>
+      `,
+    },
+    {
+      title: '2단계: 현금 전환 신청',
+      content: `
+        <p>계좌 등록이 완료되면 포인트를 현금으로 전환할 수 있습니다.</p>
+        
+        <p><strong>전환 절차:</strong></p>
+        <ol class="content-list">
+          <li>앱에서 "포인트 사용" 메뉴 선택</li>
+          <li>"현금 전환" 선택</li>
+          <li>전환할 포인트 금액 입력 (최소 전환 단위 확인)</li>
+          <li>등록된 계좌 선택</li>
+          <li>전환 신청 완료</li>
+        </ol>
+        
+        <p><strong>전환 소요 시간:</strong></p>
+        <ul class="content-list">
+          <li>보통 1-3일 내 계좌로 입금</li>
+          <li>영업일 기준 처리 (주말/공휴일 제외)</li>
+        </ul>
+        
+        <p><strong>최소 전환 단위:</strong></p>
+        <p>일반적으로 <span class="number-highlight">1,000포인트</span> 이상부터 전환 가능합니다. 앱에서 정확한 최소 전환 단위를 확인하세요.</p>
+      `,
+    },
+    {
+      title: '3단계: 카드사 포인트로 전환',
+      content: `
+        <p>현금 전환 외에도 제휴 카드사 포인트로 전환할 수 있습니다.</p>
+        
+        <p><strong>제휴 카드사:</strong></p>
+        <ul class="content-list">
+          <li>삼성카드</li>
+          <li>신한카드</li>
+          <li>KB국민카드</li>
+          <li>하나카드</li>
+        </ul>
+        
+        <p><strong>전환 방법:</strong></p>
+        <ol class="content-list">
+          <li>앱에서 "포인트 사용" 메뉴 선택</li>
+          <li>"카드 포인트 전환" 선택</li>
+          <li>카드사 선택 및 카드 번호 입력</li>
+          <li>전환할 포인트 금액 입력</li>
+          <li>전환 신청 완료</li>
+        </ol>
+        
+        <p>카드 포인트로 전환하면 해당 카드사 포인트로 사용할 수 있어 더욱 편리합니다.</p>
+      `,
+    },
+    {
+      title: '4단계: 기부하기',
+      content: `
+        <p>탄소중립포인트를 환경 관련 기관에 기부할 수도 있습니다.</p>
+        
+        <p><strong>기부 가능 기관:</strong></p>
+        <ul class="content-list">
+          <li>환경보호 관련 단체</li>
+          <li>탄소 감축 프로젝트</li>
+          <li>재생에너지 발전 사업</li>
+        </ul>
+        
+        <p><strong>기부 방법:</strong></p>
+        <ol class="content-list">
+          <li>앱에서 "포인트 사용" 메뉴 선택</li>
+          <li>"기부하기" 선택</li>
+          <li>기부할 기관 선택</li>
+          <li>기부할 포인트 금액 입력</li>
+          <li>기부 완료</li>
+        </ol>
+        
+        <p>기부를 통해 환경 보호에 직접 기여할 수 있습니다.</p>
+      `,
+    },
+    {
+      title: '현금화 시 주의사항',
+      content: `
+        <p>탄소중립포인트를 현금화할 때 다음 사항을 주의하세요:</p>
+        
+        <ul class="content-list">
+          <li><strong>최소 전환 단위:</strong> 최소 전환 단위 이상만 전환 가능</li>
+          <li><strong>전환 수수료:</strong> 일부 은행은 수수료가 발생할 수 있으니 확인 필요</li>
+          <li><strong>전환 기한:</strong> 포인트 유효기간 내에 전환해야 함</li>
+          <li><strong>계좌 정보 정확성:</strong> 잘못된 계좌번호 입력 시 전환 실패</li>
+        </ul>
+      `,
+    },
+  ],
+  faq: [
+    {
+      question: '탄소중립포인트를 현금으로 전환하는데 수수료가 있나요?',
+      answer: '대부분의 제휴 은행은 수수료가 없지만, 일부 은행은 소액 수수료가 발생할 수 있습니다. 앱에서 전환 시 수수료 정보를 확인할 수 있습니다.'
+    },
+    {
+      question: '최소 전환 단위는 얼마인가요?',
+      answer: '일반적으로 1,000포인트 이상부터 전환 가능합니다. 정확한 최소 전환 단위는 앱에서 확인할 수 있습니다.'
+    },
+    {
+      question: '현금 전환까지 얼마나 걸리나요?',
+      answer: '보통 1-3일 내에 계좌로 입금됩니다. 영업일 기준으로 처리되므로 주말이나 공휴일은 제외됩니다.'
+    },
+    {
+      question: '포인트 유효기간이 있나요?',
+      answer: '네, 포인트는 유효기간이 있습니다. 앱에서 포인트 유효기간을 확인하고, 기한 내에 전환하거나 사용해야 합니다.'
+    },
+    {
+      question: '여러 은행 계좌를 등록할 수 있나요?',
+      answer: '네, 여러 은행 계좌를 등록할 수 있습니다. 전환 시 원하는 계좌를 선택하여 전환할 수 있습니다.'
+    },
+  ],
+  internalLinks: [
+    { text: '탄소중립포인트 계산기', url: '/calculator/carbon-point' },
+    { text: '탄소중립포인트 신청 가이드', url: '/guide' },
+    { text: '탄소중립포인트 연간 7만원 받는 가이드', url: '/blog/탄소중립포인트-연간-7만원-받는-실전-가이드' },
+  ],
+  externalLinks: [
+    { text: '환경부 탄소중립포인트 공식 사이트', url: 'https://www.carbonpoint.go.kr' },
+  ],
+};
+
+// 7. 수도요금 절약으로 연간 10만원 아끼는 방법
+const waterSavingPost: BlogPost = {
+  id: 'water-saving-guide',
+  slug: '수도요금-절약-연간-10만원-아끼는-방법',
+  type: 'blog',
+  title: '수도요금 절약으로 연간 10만원 아끼는 방법',
+  description: '수도요금을 절약하는 실전 방법을 알려드립니다. 물 사용량 줄이기, 누수 점검, 절수 기기 설치 등으로 수도요금을 20-30% 절감하고 연간 10만원 이상 아낄 수 있습니다.',
+  metaTitle: '수도요금 절약 연간 10만원 아끼는 방법 | 이에스지요',
+  metaDescription: '수도요금을 절약하는 실전 방법을 알려드립니다. 물 사용량 줄이기, 누수 점검, 절수 기기 설치 등으로 수도요금을 20-30% 절감하고 연간 10만원 이상 아낄 수 있습니다.',
+  keywords: ['수도요금 절약', '수도비 절약', '수도요금 줄이기', '물 절약', '절수 방법'],
+  category: 'saving',
+  publishedAt: new Date().toISOString().split('T')[0],
+  status: 'published',
+  tags: ['수도요금', '절약', '물 절약', '생활비'],
+  author: '이에스지요',
+  readingTime: 7,
+  viewCount: 0,
+  featured: true,
+  content: '',
+  summary: {
+    question: '수도요금을 어떻게 절약할 수 있나요?',
+    answer: '물 사용량을 줄이고, 누수를 점검하며, 절수 기기를 설치하면 수도요금을 20-30% 절감할 수 있습니다. 샤워 시간 단축, 절수 샤워헤드 사용, 세탁 횟수 줄이기 등으로 연간 10만원 이상 절약 가능합니다.'
+  },
+  sections: [
+    {
+      title: '수도요금이 많이 나오는 이유',
+      content: `
+        <p>수도요금이 많이 나오는 주요 원인은 다음과 같습니다:</p>
+        <ul class="content-list">
+          <li><strong>물 사용량이 많음:</strong> 샤워 시간이 길거나, 세탁 횟수가 많음</li>
+          <li><strong>누수:</strong> 수도꼭지나 배관에서 물이 새고 있음</li>
+          <li><strong>비효율적인 기기 사용:</strong> 오래된 세탁기나 절수 기기가 없음</li>
+          <li><strong>불필요한 물 사용:</strong> 양치질이나 설거지 시 물을 틀어놓고 사용</li>
+        </ul>
+      `,
+    },
+    {
+      title: '1. 샤워 시간 단축하기',
+      content: `
+        <p>샤워 시간을 단축하면 물 사용량을 크게 줄일 수 있습니다.</p>
+        
+        <p><strong>절약 방법:</strong></p>
+        <ul class="content-list">
+          <li>샤워 시간을 10분에서 5분으로 단축</li>
+          <li>물을 틀어놓고 씻지 않고, 필요할 때만 물 사용</li>
+          <li>저수량 샤워헤드 사용</li>
+        </ul>
+        
+        <p><strong>절약 효과:</strong></p>
+        <ul class="content-list">
+          <li>샤워 시간 50% 단축 시 월간 약 <span class="number-highlight">5-8톤</span> 절약</li>
+          <li>월간 약 <span class="number-highlight">1-2만원</span> 절약</li>
+          <li>연간 약 <span class="number-highlight">2-3만원</span> 절약</li>
+        </ul>
+      `,
+    },
+    {
+      title: '2. 절수 샤워헤드 사용하기',
+      content: `
+        <p>절수 샤워헤드를 사용하면 물 사용량을 줄이면서도 충분한 수압을 유지할 수 있습니다.</p>
+        
+        <p><strong>절수 샤워헤드 효과:</strong></p>
+        <ul class="content-list">
+          <li>일반 샤워헤드 대비 약 <span class="number-highlight">30-50%</span> 물 사용량 감소</li>
+          <li>월간 약 <span class="number-highlight">3-5톤</span> 절약</li>
+          <li>연간 약 <span class="number-highlight">1-2만원</span> 절약</li>
+        </ul>
+        
+        <p>절수 샤워헤드는 온라인 쇼핑몰이나 대형마트에서 쉽게 구매할 수 있으며, 설치도 간단합니다.</p>
+      `,
+    },
+    {
+      title: '3. 세탁 횟수 줄이기',
+      content: `
+        <p>세탁 횟수를 줄이면 물과 전기 사용량을 모두 절감할 수 있습니다.</p>
+        
+        <p><strong>절약 방법:</strong></p>
+        <ul class="content-list">
+          <li>세탁물을 모아서 한 번에 세탁</li>
+          <li>세탁기 용량에 맞게 세탁물 넣기</li>
+          <li>절수 모드 활용</li>
+        </ul>
+        
+        <p><strong>절약 효과:</strong></p>
+        <ul class="content-list">
+          <li>세탁 횟수 30% 감소 시 월간 약 <span class="number-highlight">3-5톤</span> 절약</li>
+          <li>연간 약 <span class="number-highlight">1-2만원</span> 절약</li>
+        </ul>
+      `,
+    },
+    {
+      title: '4. 누수 점검 및 수리',
+      content: `
+        <p>누수는 수도요금을 크게 증가시키는 원인입니다. 정기적으로 점검하고 수리하는 것이 중요합니다.</p>
+        
+        <p><strong>점검 항목:</strong></p>
+        <ul class="content-list">
+          <li>수도꼭지에서 물이 새는지 확인</li>
+          <li>변기에서 물이 계속 흐르는지 확인</li>
+          <li>배관에서 물이 새는지 확인</li>
+          <li>수도 계량기 확인 (물을 사용하지 않을 때 계량기가 움직이면 누수 의심)</li>
+        </ul>
+        
+        <p><strong>절약 효과:</strong></p>
+        <ul class="content-list">
+          <li>작은 누수 하나만 수리해도 월간 약 <span class="number-highlight">2-3톤</span> 절약</li>
+          <li>연간 약 <span class="number-highlight">1만원</span> 이상 절약</li>
+        </ul>
+      `,
+    },
+    {
+      title: '5. 양치질과 설거지 시 물 사용 줄이기',
+      content: `
+        <p>양치질이나 설거지 시 물을 틀어놓고 사용하지 않으면 상당한 물을 절약할 수 있습니다.</p>
+        
+        <p><strong>절약 방법:</strong></p>
+        <ul class="content-list">
+          <li>양치질 시 컵에 물을 받아서 사용</li>
+          <li>설거지 시 물을 받아서 사용 (흐르는 물 사용 최소화)</li>
+          <li>과일이나 채소 씻을 때도 받아서 사용</li>
+        </ul>
+        
+        <p><strong>절약 효과:</strong></p>
+        <ul class="content-list">
+          <li>물 틀어놓고 사용하지 않으면 월간 약 <span class="number-highlight">2-3톤</span> 절약</li>
+          <li>연간 약 <span class="number-highlight">1만원</span> 절약</li>
+        </ul>
+      `,
+    },
+    {
+      title: '6. 절수 기기 설치하기',
+      content: `
+        <p>절수 기기를 설치하면 물 사용량을 크게 줄일 수 있습니다.</p>
+        
+        <p><strong>주요 절수 기기:</strong></p>
+        <ul class="content-list">
+          <li>절수 샤워헤드</li>
+          <li>절수 수도꼭지</li>
+          <li>절수 변기</li>
+          <li>절수 세탁기</li>
+        </ul>
+        
+        <p><strong>절약 효과:</strong></p>
+        <ul class="content-list">
+          <li>절수 기기 설치 시 월간 약 <span class="number-highlight">5-10톤</span> 절약</li>
+          <li>연간 약 <span class="number-highlight">2-4만원</span> 절약</li>
+        </ul>
+      `,
+    },
+    {
+      title: '수도요금 절약 종합 효과',
+      content: `
+        <p>위 방법들을 모두 실천하면 수도요금을 20-30% 절감할 수 있습니다.</p>
+        
+        <p><strong>예시: 월간 수도요금 5만원 가정</strong></p>
+        <ul class="content-list">
+          <li>절약 전: 월 5만원 (연간 60만원)</li>
+          <li>절약 후: 월 3.5-4만원 (연간 42-48만원)</li>
+          <li><strong>연간 절약: 약 <span class="number-highlight">12-18만원</span></strong></li>
+        </ul>
+        
+        <p>작은 실천들이 모이면 상당한 금액을 절약할 수 있습니다. 오늘부터 하나씩 실천해보세요!</p>
+      `,
+    },
+  ],
+  faq: [
+    {
+      question: '수도요금을 얼마나 절약할 수 있나요?',
+      answer: '위 방법들을 실천하면 수도요금을 20-30% 절감할 수 있습니다. 월간 수도요금이 5만원인 가정이라면 연간 약 12-18만원을 절약할 수 있습니다.'
+    },
+    {
+      question: '가장 효과적인 절약 방법은 무엇인가요?',
+      answer: '샤워 시간 단축과 절수 샤워헤드 사용이 가장 효과적입니다. 이 두 가지만 실천해도 수도요금을 15-20% 절감할 수 있습니다.'
+    },
+    {
+      question: '절수 샤워헤드는 어디서 구매할 수 있나요?',
+      answer: '온라인 쇼핑몰이나 대형마트에서 쉽게 구매할 수 있습니다. 가격은 1-3만원 정도이며, 설치도 간단합니다.'
+    },
+    {
+      question: '누수는 어떻게 확인하나요?',
+      answer: '물을 사용하지 않을 때 수도 계량기가 움직이면 누수 의심이 있습니다. 수도꼭지나 변기에서 물이 새는지도 확인하세요.'
+    },
+    {
+      question: '절수 기기 설치 비용이 부담스러운데요?',
+      answer: '절수 샤워헤드나 절수 수도꼭지는 1-3만원 정도로 저렴하며, 설치도 간단합니다. 하나씩 교체해도 효과를 볼 수 있습니다.'
+    },
+  ],
+  internalLinks: [
+    { text: '수도요금 절약 계산기', url: '/calculator/water' },
+    { text: '전기요금 절약 방법', url: '/blog/전기요금-폭탄-피하는-10가지-방법' },
+    { text: '가스요금 절약 방법', url: '/blog/가스요금-절약-연간-20만원-아끼는-실전-방법' },
+  ],
+  externalLinks: [
+    { text: '한국수자원공사 수도요금 안내', url: 'https://www.water.or.kr' },
+  ],
+};
+
 // 샘플 포스트 등록 (즉시 실행)
 registerContent(publicTransitPost);
 registerContent(carbonPointGuidePost);
@@ -1066,4 +1446,6 @@ registerContent(starbucksTumblerPost);
 registerContent(electricitySavingPost);
 registerContent(annual70kGuidePost);
 registerContent(gasSavingPost);
+registerContent(cashoutGuidePost);
+registerContent(waterSavingPost);
 

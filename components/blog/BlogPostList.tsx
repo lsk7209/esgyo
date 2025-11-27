@@ -29,15 +29,12 @@ export default function BlogPostList({ posts }: BlogPostListProps) {
         return (
           <Link key={post.id} href={`/blog/${post.slug}`}>
             <Card className="p-4 sm:p-5 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group border hover:border-green-300">
-              {post.image && (
-                <div className="aspect-video bg-gray-100 rounded-lg mb-3 sm:mb-4 overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={`${post.title} 대표 이미지`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+              {/* 이미지 대체: 인터랙티브 아이콘 애니메이션 */}
+              <div className="aspect-video bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg mb-3 sm:mb-4 overflow-hidden flex items-center justify-center group-hover:from-green-100 group-hover:to-emerald-100 transition-all duration-300">
+                <div className="text-6xl transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+                  {categoryConfig.icon}
                 </div>
-              )}
+              </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-lg" role="img" aria-label={`${categoryConfig.name} 카테고리 아이콘`}>{categoryConfig.icon}</span>
                 <span className={`text-xs px-2 py-1 rounded-full bg-${categoryConfig.color}-100 text-${categoryConfig.color}-700`}>

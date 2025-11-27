@@ -336,4 +336,122 @@
       content: " (" attr(href) ")";
     }
   }
+  
+  /* 가독성 향상 애니메이션 */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes progress {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes count-up {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .animate-progress {
+    animation: progress 0.8s ease-out;
+  }
+  
+  .animate-count-up {
+    animation: count-up 0.6s ease-out;
+  }
+  
+  /* 가독성 향상 - 텍스트 강조 */
+  .text-highlight {
+    @apply bg-yellow-100 px-2 py-1 rounded font-semibold;
+  }
+  
+  /* 가독성 향상 - 숫자 강조 */
+  .number-highlight {
+    @apply text-2xl font-bold text-green-600;
+  }
+  
+  /* 가독성 향상 - 리스트 스타일 */
+  .content-list {
+    @apply space-y-3 my-4;
+  }
+  
+  .content-list li {
+    @apply pl-4 relative;
+  }
+  
+  .content-list li::before {
+    content: "→";
+    @apply absolute left-0 text-green-600 font-bold;
+  }
+  
+  /* 블로그 콘텐츠 가독성 향상 */
+  .blog-content {
+    @apply space-y-4;
+  }
+  
+  .blog-content p {
+    @apply mb-4 leading-relaxed text-gray-800;
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.8;
+  }
+  
+  .blog-content h2 {
+    @apply mt-8 mb-4 text-2xl font-bold text-gray-900;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  .blog-content h3 {
+    @apply mt-6 mb-3 text-xl font-semibold text-gray-900;
+  }
+  
+  .blog-content ul,
+  .blog-content ol {
+    @apply my-4 space-y-2;
+  }
+  
+  .blog-content ul li,
+  .blog-content ol li {
+    @apply pl-2;
+    line-height: 1.8;
+  }
+  
+  .blog-content strong {
+    @apply font-bold text-gray-900;
+  }
+  
+  .blog-content a {
+    @apply text-green-600 hover:text-green-700 underline;
+  }
+  
+  /* 숫자 강조 스타일 */
+  .number-highlight {
+    @apply inline-block px-2 py-1 bg-green-100 text-green-700 font-bold rounded text-xl;
+  }
+  
+  /* 텍스트 하이라이트 */
+  .text-highlight {
+    @apply bg-yellow-100 px-2 py-1 rounded font-semibold text-gray-900;
+  }
 }

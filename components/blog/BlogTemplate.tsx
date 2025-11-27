@@ -139,7 +139,10 @@ export default function BlogTemplate({
             
             <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-700 leading-relaxed">
               {typeof section.content === 'string' ? (
-                <div dangerouslySetInnerHTML={{ __html: section.content }} />
+                <div 
+                  className="blog-content"
+                  dangerouslySetInnerHTML={{ __html: section.content }} 
+                />
               ) : (
                 section.content
               )}
