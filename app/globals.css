@@ -154,12 +154,18 @@
     body {
       font-size: 15px;
       line-height: 1.65;
+      /* 모바일에서 스크롤 성능 최적화 */
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
     }
     
     /* 모바일에서 터치 타겟 최소 크기 보장 (44x44px) */
     button, a[role="button"], input, select, textarea {
       min-height: 44px;
       min-width: 44px;
+      /* 터치 피드백 개선 */
+      -webkit-tap-highlight-color: rgba(34, 197, 94, 0.1);
+      tap-highlight-color: rgba(34, 197, 94, 0.1);
     }
     
     /* 모바일에서 텍스트 오버플로우 방지 */
@@ -174,6 +180,19 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
+    
+    /* 모바일에서 이미지 최적화 */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* 모바일에서 테이블 스크롤 */
+    table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
   }
   
   /* 태블릿 최적화 (641px ~ 1024px) */
@@ -181,6 +200,25 @@
     body {
       font-size: 15.5px;
       line-height: 1.68;
+    }
+    
+    /* 태블릿에서 그리드 최적화 */
+    .grid {
+      gap: 1.5rem;
+    }
+  }
+  
+  /* 작은 태블릿/큰 모바일 (641px ~ 768px) */
+  @media (min-width: 641px) and (max-width: 768px) {
+    body {
+      font-size: 15.25px;
+    }
+  }
+  
+  /* 중간 태블릿 (769px ~ 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    body {
+      font-size: 15.75px;
     }
   }
   
@@ -195,6 +233,25 @@
     .container {
       max-width: 1280px;
     }
+    
+    /* PC에서 호버 효과 활성화 */
+    a, button {
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  
+  /* 중간 PC (1025px ~ 1279px) */
+  @media (min-width: 1025px) and (max-width: 1279px) {
+    body {
+      font-size: 16px;
+    }
+  }
+  
+  /* 큰 PC (1280px ~ 1439px) */
+  @media (min-width: 1280px) and (max-width: 1439px) {
+    body {
+      font-size: 16.5px;
+    }
   }
   
   /* 대형 화면 최적화 (1440px 이상) */
@@ -202,6 +259,22 @@
     body {
       font-size: 17px;
       line-height: 1.75;
+    }
+    
+    .container {
+      max-width: 1400px;
+    }
+  }
+  
+  /* 초대형 화면 (1920px 이상) */
+  @media (min-width: 1920px) {
+    body {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    
+    .container {
+      max-width: 1600px;
     }
   }
   
@@ -213,5 +286,54 @@
   /* 포커스 스타일 개선 */
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-green-500;
+  }
+  
+  /* 모바일 터치 최적화 */
+  @media (hover: none) and (pointer: coarse) {
+    /* 터치 디바이스에서 호버 효과 비활성화 */
+    *:hover {
+      /* 호버 효과는 유지하되, 터치 피드백 강화 */
+    }
+    
+    /* 터치 스크롤 최적화 */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    button, a {
+      -webkit-tap-highlight-color: rgba(34, 197, 94, 0.15);
+    }
+  }
+  
+  /* 고해상도 디스플레이 최적화 */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+  
+  /* 가로 모드 모바일 최적화 */
+  @media (max-width: 896px) and (orientation: landscape) {
+    body {
+      font-size: 14px;
+    }
+    
+    /* 가로 모드에서 헤더 높이 조정 */
+    header {
+      min-height: 48px;
+    }
+  }
+  
+  /* 인쇄 최적화 */
+  @media print {
+    * {
+      background: white !important;
+      color: black !important;
+    }
+    
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
   }
 }

@@ -45,21 +45,21 @@ export default function Home() {
           <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
             간단한 정보만 입력하면 바로 예상 포인트를 확인할 수 있습니다.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            <div className="p-4 sm:p-5 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-100 hover:shadow-md transition-shadow">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+            <div className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-100 hover:shadow-md active:scale-[0.98] transition-all duration-200">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">☕</span>
-                <p className="text-xs sm:text-sm font-medium text-gray-700">텀블러 사용</p>
+                <span className="text-xl sm:text-2xl">☕</span>
+                <p className="text-xs sm:text-sm md:text-base font-medium text-gray-700">텀블러 사용</p>
               </div>
-              <p className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">주 3회</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 mb-1">주 3회</p>
               <p className="text-xs sm:text-sm text-gray-600">→ 연간 약 46,800원</p>
             </div>
-            <div className="p-4 sm:p-5 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
+            <div className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100 hover:shadow-md active:scale-[0.98] transition-all duration-200">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">🚇</span>
-                <p className="text-xs sm:text-sm font-medium text-gray-700">대중교통 이용</p>
+                <span className="text-xl sm:text-2xl">🚇</span>
+                <p className="text-xs sm:text-sm md:text-base font-medium text-gray-700">대중교통 이용</p>
               </div>
-              <p className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">월 100km</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 mb-1">월 100km</p>
               <p className="text-xs sm:text-sm text-gray-600">→ 연간 약 6,000원</p>
             </div>
           </div>
@@ -76,29 +76,29 @@ export default function Home() {
       <AdSenseSlot slotId="home-middle" className="my-8" />
 
       {/* 주요 기능 소개 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 mt-10 sm:mt-14">
-        <Card className="p-5 sm:p-7 text-center hover:shadow-xl transition-all duration-300 border-0 bg-white group">
-          <div className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-5 transform group-hover:scale-110 transition-transform duration-300">🧮</div>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">정확한 계산</h3>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mt-8 sm:mt-10 md:mt-12 lg:mt-14">
+        <Card className="p-4 sm:p-5 md:p-6 lg:p-7 text-center hover:shadow-xl active:scale-[0.98] transition-all duration-300 border-0 bg-white group">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 md:mb-5 transform group-hover:scale-110 transition-transform duration-300">🧮</div>
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 text-gray-900">정확한 계산</h3>
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
             환경부 기준으로 실제 받을 수 있는 포인트를 정확히 계산해드립니다. 
             텀블러 사용, 대중교통 이용 등 다양한 활동을 입력하면 즉시 예상 포인트를 확인할 수 있습니다.
           </p>
         </Card>
         
-        <Card className="p-5 sm:p-7 text-center hover:shadow-xl transition-all duration-300 border-0 bg-white group">
-          <div className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-5 transform group-hover:scale-110 transition-transform duration-300">📖</div>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">신청 가이드</h3>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+        <Card className="p-4 sm:p-5 md:p-6 lg:p-7 text-center hover:shadow-xl active:scale-[0.98] transition-all duration-300 border-0 bg-white group">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 md:mb-5 transform group-hover:scale-110 transition-transform duration-300">📖</div>
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 text-gray-900">신청 가이드</h3>
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
             복잡한 정부 제도를 3분 요약으로 쉽게 이해하고 신청할 수 있습니다. 
             자주 묻는 질문과 답변을 통해 신청 과정을 단계별로 안내해드립니다.
           </p>
         </Card>
         
-        <Card className="p-5 sm:p-7 text-center hover:shadow-xl transition-all duration-300 border-0 bg-white group sm:col-span-2 lg:col-span-1">
-          <div className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-5 transform group-hover:scale-110 transition-transform duration-300">💡</div>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">절약 팁</h3>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+        <Card className="p-4 sm:p-5 md:p-6 lg:p-7 text-center hover:shadow-xl active:scale-[0.98] transition-all duration-300 border-0 bg-white group sm:col-span-2 lg:col-span-1">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 md:mb-5 transform group-hover:scale-110 transition-transform duration-300">💡</div>
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 text-gray-900">절약 팁</h3>
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
             일상 속에서 쉽게 실천할 수 있는 절약 팁과 추가 포인트 받는 방법을 알려드립니다. 
             전기요금, 가스요금 절약 계산기도 함께 제공합니다.
           </p>

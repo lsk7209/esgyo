@@ -206,21 +206,21 @@ export default function CalculatorPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-6 sm:pt-8 border-t border-green-200">
-                <div className="text-center p-4 bg-white/60 rounded-xl">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 mb-2 break-words">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 pt-6 sm:pt-8 border-t border-green-200">
+                <div className="text-center p-3 sm:p-4 md:p-5 bg-white/60 rounded-xl hover:bg-white/80 transition-colors">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-700 mb-2 break-words">
                     {formatEmission(co2Reduction / 1000, 2)} tCO₂
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600 font-medium">CO₂ 감축량</p>
                 </div>
-                <div className="text-center p-4 bg-white/60 rounded-xl">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 mb-2 break-words">
+                <div className="text-center p-3 sm:p-4 md:p-5 bg-white/60 rounded-xl hover:bg-white/80 transition-colors">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-700 mb-2 break-words">
                     {formatNumber(treeEquivalent)}그루
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600 font-medium">나무 심기 효과</p>
                 </div>
-                <div className="text-center p-4 bg-white/60 rounded-xl">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 mb-2 break-words">
+                <div className="text-center p-3 sm:p-4 md:p-5 bg-white/60 rounded-xl hover:bg-white/80 transition-colors">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-700 mb-2 break-words">
                     {formatNumber(annualPoint)}P
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600 font-medium">연간 포인트</p>
