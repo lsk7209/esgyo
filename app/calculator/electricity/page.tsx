@@ -14,7 +14,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PageHeader from '@/components/layout/PageHeader';
 import PageContainer from '@/components/layout/PageContainer';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import Link from 'next/link';
 import JSONLD from '@/components/seo/JSONLD';
 
@@ -85,9 +84,6 @@ export default function ElectricityCalculatorPage() {
           description="전기 사용량을 줄여서 연간 절약할 수 있는 금액을 계산해보세요"
         />
 
-        {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="calculator-electricity-top" className="my-8" />
-
         {/* 입력 폼 */}
         <Card className="p-4 sm:p-6 mb-4 sm:mb-6">
           <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">전기 사용 정보 입력</h2>
@@ -138,9 +134,6 @@ export default function ElectricityCalculatorPage() {
           </div>
         </Card>
 
-        {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="calculator-electricity-middle" className="my-8" />
-
         {/* 결과 카드 */}
         {results && (
           <Card className="p-6 sm:p-8 md:p-10 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 border-2 border-blue-200 shadow-xl">
@@ -185,8 +178,6 @@ export default function ElectricityCalculatorPage() {
           </Card>
         )}
 
-        {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="calculator-electricity-bottom" className="my-8" />
 
         {/* 절약 팁 */}
         <Card className="p-4 sm:p-6">

@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import { TIP_CATEGORIES, CONTENT_CATEGORIES } from '@/constants/contentCategories';
 import { getContentList, getAllTags } from '@/lib/content';
 import type { ContentCategory } from '@/types/content';
@@ -58,9 +57,6 @@ export default function TipsPage() {
           title="절약 팁 - 일상 속 작은 실천으로 큰 절약"
           description="전기, 가스, 수도 등 생활비 절약 팁과 친환경 실천 방법을 확인하세요"
         />
-
-        {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="tips-top" className="my-4 sm:my-5" />
 
         {/* 검색 및 필터 */}
         <Card className="p-4 sm:p-6 mb-4 sm:mb-5">
@@ -138,8 +134,6 @@ export default function TipsPage() {
           </div>
         </Card>
 
-        {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="tips-middle" className="my-4 sm:my-5" />
 
         {/* 절약 팁 목록 */}
         {tips.length > 0 ? (
@@ -202,7 +196,6 @@ export default function TipsPage() {
         )}
 
         {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="tips-bottom" className="my-4 sm:my-5" />
 
         {/* 미니 계산기 섹션 (기존 유지) */}
         <div className="mt-5 sm:mt-6 md:mt-8">

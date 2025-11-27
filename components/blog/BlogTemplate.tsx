@@ -6,7 +6,6 @@
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 
 interface BlogTemplateProps {
   // 헤더
@@ -70,12 +69,6 @@ interface BlogTemplateProps {
     };
   };
   
-  // AdSense 슬롯 ID
-  adSlotIds?: {
-    top?: string;
-    middle?: string;
-    bottom?: string;
-  };
 }
 
 export default function BlogTemplate({
@@ -91,7 +84,6 @@ export default function BlogTemplate({
   internalLinks,
   externalLinks = [],
   cta,
-  adSlotIds = {},
 }: BlogTemplateProps) {
   return (
     <div className="space-y-4 sm:space-y-5 md:space-y-6">
@@ -126,11 +118,6 @@ export default function BlogTemplate({
           )}
         </div>
       </div>
-
-      {/* AdSense Slot - 상단 */}
-      {adSlotIds.top && (
-        <AdSenseSlot slotId={adSlotIds.top} className="my-4 sm:my-5" />
-      )}
 
       {/* 핵심 요약 (AEO 최적화) */}
       <Card className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
@@ -178,11 +165,6 @@ export default function BlogTemplate({
               </div>
             )}
           </Card>
-          
-          {/* 섹션 사이 AdSense (중간) */}
-          {index === Math.floor(sections.length / 2) - 1 && adSlotIds.middle && (
-            <AdSenseSlot slotId={adSlotIds.middle} className="my-4 sm:my-5" />
-          )}
         </div>
       ))}
 
@@ -259,11 +241,6 @@ export default function BlogTemplate({
             ))}
           </div>
         </Card>
-      )}
-
-      {/* AdSense Slot - 하단 */}
-      {adSlotIds.bottom && (
-        <AdSenseSlot slotId={adSlotIds.bottom} className="my-4 sm:my-5" />
       )}
 
       {/* CTA 섹션 */}

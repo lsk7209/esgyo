@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 
 export default function Home() {
   return (
@@ -32,9 +31,6 @@ export default function Home() {
           </p>
         </div>
       </div>
-
-      {/* AdSense Slot 1 - 상단 */}
-      <AdSenseSlot slotId="home-top" className="my-4 sm:my-5" />
 
       {/* 메인 계산기 요약 */}
       <Card className="p-5 sm:p-7 md:p-9 shadow-md hover:shadow-xl transition-all duration-300 border-0 bg-white">
@@ -71,9 +67,6 @@ export default function Home() {
           </Button>
         </Link>
       </Card>
-
-      {/* AdSense Slot 2 - 중단 */}
-      <AdSenseSlot slotId="home-middle" className="my-4 sm:my-5" />
 
       {/* 주요 기능 소개 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-5 sm:mt-6 md:mt-8">
@@ -121,8 +114,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* AdSense Slot 3 - 하단 */}
-      <AdSenseSlot slotId="home-bottom" className="my-4 sm:my-5" />
     </PageContainer>
   );
 }

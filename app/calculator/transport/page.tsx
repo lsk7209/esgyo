@@ -14,7 +14,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PageHeader from '@/components/layout/PageHeader';
 import PageContainer from '@/components/layout/PageContainer';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import Link from 'next/link';
 import JSONLD from '@/components/seo/JSONLD';
 
@@ -105,9 +104,6 @@ export default function TransportCalculatorPage() {
           description="대중교통 이용 시 절약되는 비용과 탄소 감축량을 계산해보세요"
         />
 
-        {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="calculator-transport-top" className="my-8" />
-
         {/* 입력 폼 */}
         <Card className="p-4 sm:p-6 mb-4 sm:mb-6">
           <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">이동 정보 입력</h2>
@@ -157,9 +153,6 @@ export default function TransportCalculatorPage() {
             </div>
           </div>
         </Card>
-
-        {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="calculator-transport-middle" className="my-8" />
 
         {/* 결과 카드 */}
         {results && (
@@ -216,8 +209,6 @@ export default function TransportCalculatorPage() {
           </Card>
         )}
 
-        {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="calculator-transport-bottom" className="my-8" />
 
         {/* 비교 표 */}
         {results && (

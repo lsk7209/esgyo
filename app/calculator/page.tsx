@@ -11,7 +11,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import { CALCULATORS, ACTIVE_CALCULATORS, CALCULATORS_BY_CATEGORY } from '@/constants/calculators';
 import JSONLD from '@/components/seo/JSONLD';
 
@@ -46,9 +45,6 @@ export default function CalculatorMainPage() {
           title="다양한 계산기로 절약 효과 확인하기"
           description="탄소중립포인트부터 전기·가스요금 절약까지, 일상 속 작은 실천으로 얼마나 절약할 수 있는지 계산해보세요"
         />
-
-        {/* AdSense Slot 1 - 상단 */}
-        <AdSenseSlot slotId="calculator-top" className="my-4 sm:my-5" />
 
         {/* 메인 계산기 - 탄소중립포인트 (강조) */}
         <div className="mb-8 sm:mb-12">
@@ -87,9 +83,6 @@ export default function CalculatorMainPage() {
             </Card>
           </Link>
         </div>
-
-        {/* AdSense Slot 2 - 중단 */}
-        <AdSenseSlot slotId="calculator-middle" className="my-4 sm:my-5" />
 
         {/* 다른 계산기 목록 */}
         <div className="mb-5 sm:mb-6 md:mb-8">
@@ -198,9 +191,6 @@ export default function CalculatorMainPage() {
             </div>
           )}
         </div>
-
-        {/* AdSense Slot 3 - 하단 */}
-        <AdSenseSlot slotId="calculator-bottom" className="my-4 sm:my-5" />
 
         {/* 관련 가이드 섹션 */}
         <div className="mt-8 sm:mt-12">

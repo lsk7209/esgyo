@@ -15,7 +15,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PageHeader from '@/components/layout/PageHeader';
 import PageContainer from '@/components/layout/PageContainer';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import Link from 'next/link';
 import JSONLD from '@/components/seo/JSONLD';
 
@@ -99,9 +98,6 @@ export default function CarbonPointCalculatorPage() {
           title="탄소중립포인트 계산기 – 올해 내가 받을 수 있는 금액은?"
           description="일상 속 작은 실천으로 받을 수 있는 포인트와 현금화 금액을 계산해보세요"
         />
-
-        {/* AdSense Slot 1 - 상단 */}
-        <AdSenseSlot slotId="calculator-carbon-top" className="my-4 sm:my-5" />
 
         {/* 입력 폼 */}
         <Card className="p-4 sm:p-6 mb-3 sm:mb-4">
@@ -194,9 +190,6 @@ export default function CarbonPointCalculatorPage() {
           </div>
         </Card>
 
-        {/* AdSense Slot 2 - 중단 */}
-        <AdSenseSlot slotId="calculator-carbon-middle" className="my-4 sm:my-5" />
-
         {/* 결과 카드 */}
         {hasInput && (
           <Card className="p-5 sm:p-6 md:p-8 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-2 border-green-200 shadow-xl">
@@ -251,9 +244,6 @@ export default function CarbonPointCalculatorPage() {
             </div>
           </Card>
         )}
-
-        {/* AdSense Slot 3 - 하단 */}
-        <AdSenseSlot slotId="calculator-carbon-bottom" className="my-4 sm:my-5" />
 
         {/* 다른 계산기 추천 */}
         <div className="mt-5 sm:mt-6 md:mt-8">

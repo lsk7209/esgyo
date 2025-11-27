@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import { BLOG_CATEGORIES, CONTENT_CATEGORIES } from '@/constants/contentCategories';
 import { getContentList, getAllTags } from '@/lib/content';
 import type { ContentCategory } from '@/types/content';
@@ -58,9 +57,6 @@ export default function BlogPage() {
           title="블로그 - 친환경 라이프스타일 가이드"
           description="탄소중립포인트, 절약 팁, 환경 정보 등 유용한 콘텐츠를 만나보세요"
         />
-
-        {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="blog-top" className="my-4 sm:my-5" />
 
         {/* 검색 및 필터 */}
         <Card className="p-4 sm:p-6 mb-4 sm:mb-5">
@@ -138,9 +134,6 @@ export default function BlogPage() {
           </div>
         </Card>
 
-        {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="blog-middle" className="my-4 sm:my-5" />
-
         {/* 블로그 포스트 목록 */}
         {posts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -206,7 +199,6 @@ export default function BlogPage() {
         )}
 
         {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="blog-bottom" className="my-4 sm:my-5" />
 
         {/* 인기 글 추천 */}
         <div className="mt-5 sm:mt-6 md:mt-8">

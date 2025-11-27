@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import PageContainer from '@/components/layout/PageContainer';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
 import { getContent, getRelatedContent } from '@/lib/content';
 import { CONTENT_CATEGORIES } from '@/constants/contentCategories';
 import JSONLD from '@/components/seo/JSONLD';
@@ -109,8 +108,6 @@ export default function TipPostPage({ params }: TipPostPageProps) {
           )}
         </div>
 
-        {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="tip-post-top" className="my-8" />
 
         {/* 본문 */}
         <Card className="p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
@@ -137,8 +134,6 @@ export default function TipPostPage({ params }: TipPostPageProps) {
           </Card>
         )}
 
-        {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="tip-post-middle" className="my-8" />
 
         {/* 태그 */}
         {tip.tags.length > 0 && (
@@ -184,8 +179,6 @@ export default function TipPostPage({ params }: TipPostPageProps) {
           </div>
         )}
 
-        {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="tip-post-bottom" className="my-8" />
 
         {/* CTA */}
         <Card className="p-6 sm:p-8 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
