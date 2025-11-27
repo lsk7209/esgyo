@@ -57,7 +57,7 @@ export default function AdminPage() {
   }, [allBlogPosts, allTipPosts]);
 
   return (
-    <PageContainer maxWidth="6xl">
+    <PageContainer maxWidth="4xl">
       <PageHeader
         title="관리자 대시보드"
         description="사이트 통계 및 콘텐츠 관리"
