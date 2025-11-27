@@ -100,7 +100,7 @@ export default function BusinessCalculatorPage() {
 
   // JSONLD 데이터 메모이제이션
   const softwareAppData = useMemo(() => ({
-    name: 'ESGyo Scope 1·2 배출량 계산기',
+    name: '이에스지요 Scope 1·2 배출량 계산기',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     description: '전기, 가스, 연료 사용량 또는 비용을 입력하여 탄소 배출량을 계산하는 도구',

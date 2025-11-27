@@ -20,7 +20,7 @@ export default function Header() {
           <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
             <Link href="/" className="flex items-center space-x-2 min-w-[80px] sm:min-w-[100px] group">
               <span className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent group-hover:from-green-700 group-hover:to-emerald-700 transition-all duration-200">
-                ESGyo
+                이에스지요
               </span>
             </Link>
             

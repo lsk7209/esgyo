@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* About */}
           <section className="sm:col-span-2 lg:col-span-1" aria-labelledby="footer-about">
-            <h3 id="footer-about" className="font-bold text-lg sm:text-xl mb-4 sm:mb-5 text-gray-900">ESGyo 소개</h3>
+            <h3 id="footer-about" className="font-bold text-lg sm:text-xl mb-4 sm:mb-5 text-gray-900">이에스지요 소개</h3>
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-5 leading-relaxed">
               탄소중립포인트 계산 및 신청 가이드를 제공하는 서비스입니다. 
               일상 속 작은 실천으로 받을 수 있는 포인트를 쉽게 계산하고 신청할 수 있도록 도와드립니다.
@@ -90,7 +90,7 @@ export default function Footer() {
         
         <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-gray-200 text-center space-y-2">
           <p className="text-sm sm:text-base text-gray-600 font-medium">
-            © {currentYear} ESGyo. All rights reserved.
+            © {currentYear} 이에스지요. All rights reserved.
           </p>
           <p className="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-2xl mx-auto px-4">
             본 서비스는 참고용이며, 실제 포인트는 환경부 공식 시스템을 통해 확인하시기 바랍니다.

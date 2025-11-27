@@ -3,7 +3,7 @@
  */
 
 export const APP_CONFIG = {
-  name: 'ESGyo',
+  name: '이에스지요',
   description: '탄소 배출량 계산 및 진단 서비스',
   version: '1.0.0',
   supportEmail: 'support@esgyo.com',

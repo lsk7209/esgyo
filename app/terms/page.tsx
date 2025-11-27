@@ -11,7 +11,7 @@ export default function TermsPage() {
     <PageContainer maxWidth="4xl">
       <PageHeader
         title="이용약관"
-        description="ESGyo 서비스 이용약관"
+        description="이에스지요 서비스 이용약관"
       />
 
       <Card className="p-8">
@@ -19,7 +19,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold mb-4">제1조 (목적)</h2>
             <p className="text-gray-700">
-              본 약관은 ESGyo(이하 "회사")가 제공하는 탄소중립포인트 계산 서비스(이하 "서비스")의 이용과 관련하여 
+              본 약관은 이에스지요(이하 "회사")가 제공하는 탄소중립포인트 계산 서비스(이하 "서비스")의 이용과 관련하여 
               회사와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
             </p>
           </section>

@@ -18,14 +18,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "ESGyo - 탄소중립포인트 계산기",
-    template: "%s | ESGyo"
+    default: "이에스지요 - 탄소중립포인트 계산기",
+    template: "%s | 이에스지요"
   },
   description: "올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.",
   keywords: ["탄소중립포인트", "탄소중립 포인트 계산기", "환경부 포인트", "탄소 포인트 현금", "환경 앱테크", "텀블러 할인", "전기요금 절약", "대중교통 탄소 절감"],
-  authors: [{ name: "ESGyo" }],
-  creator: "ESGyo",
-  publisher: "ESGyo",
+  authors: [{ name: "이에스지요" }],
+  creator: "이에스지요",
+  publisher: "이에스지요",
   formatDetection: {
     email: false,
     address: false,
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
       type: 'website',
       locale: 'ko_KR',
       url: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com',
-      siteName: 'ESGyo',
-      title: 'ESGyo - 탄소중립포인트 계산기',
+      siteName: '이에스지요',
+      title: '이에스지요 - 탄소중립포인트 계산기',
       description: '올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'ESGyo - 탄소중립포인트 계산기',
+      title: '이에스지요 - 탄소중립포인트 계산기',
       description: '올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.',
     },
   robots: {

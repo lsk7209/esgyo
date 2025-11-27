@@ -11,16 +11,16 @@ export default function AboutPage() {
   return (
     <PageContainer maxWidth="4xl">
       <PageHeader
-        title="ESGyo 소개"
+        title="이에스지요 소개"
         description="탄소중립포인트 계산 및 신청 가이드를 제공하는 서비스입니다"
       />
 
       <div className="space-y-6 sm:space-y-8">
         <Card className="p-4 sm:p-6 md:p-8">
-          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">ESGyo는 무엇인가요?</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">이에스지요는 무엇인가요?</h2>
           <div className="prose max-w-none space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed">
             <p>
-              ESGyo는 개인 소비자를 위한 탄소중립포인트 계산 및 신청 가이드 서비스입니다. 
+              이에스지요는 개인 소비자를 위한 탄소중립포인트 계산 및 신청 가이드 서비스입니다. 
               복잡한 정부 제도를 3분 요약으로 쉽게 이해하고, 내가 받을 수 있는 포인트를 정확히 계산할 수 있도록 도와드립니다.
             </p>
             <p>
@@ -28,7 +28,7 @@ export default function AboutPage() {
               일상 속 작은 친환경 실천을 통해 연간 최대 70,000원까지 포인트를 받을 수 있는 제도입니다.
             </p>
             <p>
-              ESGyo는 이러한 제도를 더 많은 사람들이 쉽게 이해하고 활용할 수 있도록 돕기 위해 만들어졌습니다.
+              이에스지요는 이러한 제도를 더 많은 사람들이 쉽게 이해하고 활용할 수 있도록 돕기 위해 만들어졌습니다.
             </p>
           </div>
         </Card>

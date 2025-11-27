@@ -13,7 +13,7 @@ export default function ContactPage() {
     <PageContainer maxWidth="4xl">
       <PageHeader
         title="문의하기"
-        description="ESGyo 서비스에 대한 문의사항을 남겨주세요"
+        description="이에스지요 서비스에 대한 문의사항을 남겨주세요"
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
