@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <Link href="/calculator" className="hidden md:block">
               <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white min-h-[36px] px-4">
-                계산하기
+                계산기
               </Button>
             </Link>
             
@@ -112,7 +112,7 @@ export default function Header() {
                 className="block"
               >
                 <Button size="sm" className="w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white min-h-[48px] text-base font-semibold shadow-md">
-                  계산하기
+                  계산기
                 </Button>
               </Link>
             </div>

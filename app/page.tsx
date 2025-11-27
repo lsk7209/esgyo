@@ -65,7 +65,7 @@ export default function Home() {
           </div>
         </div>
         
-        <Link href="/calculator" className="block">
+        <Link href="/calculator/carbon-point" className="block">
           <Button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-base sm:text-lg font-semibold py-5 sm:py-6 md:py-7 min-h-[48px] sm:min-h-[52px] rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
             자세히 계산하기 →
           </Button>

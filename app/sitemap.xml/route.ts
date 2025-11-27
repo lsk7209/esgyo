@@ -11,6 +11,10 @@ export async function GET() {
   const routes = [
     '',
     '/calculator',
+    '/calculator/carbon-point',
+    '/calculator/electricity',
+    '/calculator/gas',
+    '/calculator/transport',
     '/guide',
     '/tips',
     '/blog',
