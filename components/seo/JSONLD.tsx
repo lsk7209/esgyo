@@ -22,10 +22,22 @@ export default function JSONLD({ type, data }: JSONLDProps) {
         '@type': type,
         ...data
       };
-      return JSON.stringify(baseSchema, null, 0); // 압축된 JSON
+      const serialized = JSON.stringify(baseSchema, null, 0); // 압축된 JSON
+      
+      // XSS 방지: JSON 문자열에 스크립트 태그가 포함되지 않았는지 검증
+      if (serialized.includes('</script>') || serialized.includes('<script')) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('[JSONLD] Potentially unsafe content detected');
+        }
+        return '{}';
+      }
+      
+      return serialized;
     } catch (error) {
       // JSON 직렬화 실패 시 빈 객체 반환
-      console.error('JSON-LD serialization error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('JSON-LD serialization error:', error);
+      }
       return '{}';
     }
   }, [type, data]);

@@ -3,10 +3,10 @@
  */
 
 import { create } from 'zustand';
-import { v4 as uuidv4 } from 'uuid';
 import type { PersonalState } from '@/types/personal';
 import { calculateAll } from '@/lib/pointCalculator';
 import { isPositiveNumber } from '@/lib/types/guards';
+import { generateUUID } from '@/lib/utils/uuid';
 
 interface PersonalStore extends PersonalState {
   sessionId: string;
@@ -22,7 +22,7 @@ interface PersonalStore extends PersonalState {
 }
 
 const initialState: Omit<PersonalState, 'annualPoint' | 'expectedCash' | 'co2Reduction' | 'treeEquivalent'> & { sessionId: string; createdAt: string } = {
-  sessionId: uuidv4(),
+  sessionId: generateUUID(),
   tumblerPerWeek: 0,
   receiptPerMonth: 0,
   refillPerMonth: 0,
@@ -80,7 +80,7 @@ export const usePersonalStore = create<PersonalStore>((set, get) => {
     },
     
     reset: () => {
-      const newSessionId = uuidv4();
+      const newSessionId = generateUUID();
       const resetCalc = calculateAll({
         tumblerPerWeek: 0,
         receiptPerMonth: 0,

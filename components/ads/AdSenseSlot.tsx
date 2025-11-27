@@ -9,6 +9,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Script from 'next/script';
 
 interface AdSenseSlotProps {
   slotId?: string;
@@ -26,7 +27,7 @@ export default function AdSenseSlot({ slotId, className = '', style }: AdSenseSl
       return;
     }
 
-    // AdSense 스크립트 동적 로드
+    // AdSense 스크립트가 로드된 후 광고 초기화
     const loadAdSense = () => {
       if (window.adsbygoogle && adSlotRef.current) {
         try {
@@ -34,7 +35,9 @@ export default function AdSenseSlot({ slotId, className = '', style }: AdSenseSl
           isLoadedRef.current = true;
         } catch (error) {
           // AdSense 로드 실패 시 무시 (개발 환경 등)
-          console.error('AdSense load error:', error);
+          if (process.env.NODE_ENV === 'development') {
+            console.error('AdSense load error:', error);
+          }
         }
       }
     };
@@ -43,17 +46,18 @@ export default function AdSenseSlot({ slotId, className = '', style }: AdSenseSl
     if (window.adsbygoogle) {
       loadAdSense();
     } else {
-      // 스크립트 동적 로드
-      const script = document.createElement('script');
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-      script.async = true;
-      script.crossOrigin = 'anonymous';
-      script.onload = loadAdSense;
-      script.onerror = () => {
-        // 스크립트 로드 실패 시 무시
-        console.error('AdSense script load failed');
-      };
-      document.head.appendChild(script);
+      // 스크립트 로드 대기
+      const checkInterval = setInterval(() => {
+        if (window.adsbygoogle) {
+          clearInterval(checkInterval);
+          loadAdSense();
+        }
+      }, 100);
+
+      // 5초 후 타임아웃
+      setTimeout(() => {
+        clearInterval(checkInterval);
+      }, 5000);
     }
   }, [slotId]);
 
@@ -77,14 +81,28 @@ export default function AdSenseSlot({ slotId, className = '', style }: AdSenseSl
   const adClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXX';
   
   return (
-    <div 
-      ref={adSlotRef}
-      className={className} 
-      style={style}
-      aria-label="광고 영역"
-    >
-      {slotId && (
-        <>
+    <>
+      {/* Next.js Script 컴포넌트로 AdSense 스크립트 로드 */}
+      {process.env.NODE_ENV === 'production' && (
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          onError={() => {
+            if (process.env.NODE_ENV === 'development') {
+              console.error('AdSense script load failed');
+            }
+          }}
+        />
+      )}
+      <div 
+        ref={adSlotRef}
+        className={className} 
+        style={style}
+        aria-label="광고 영역"
+        role="complementary"
+      >
+        {slotId && process.env.NODE_ENV === 'production' && (
           <ins
             className="adsbygoogle"
             style={{ display: 'block' }}
@@ -93,9 +111,9 @@ export default function AdSenseSlot({ slotId, className = '', style }: AdSenseSl
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-        </>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

@@ -3,13 +3,13 @@
  */
 
 import { create } from 'zustand';
-import { v4 as uuidv4 } from 'uuid';
 import type { BusinessState, InputMode } from '@/types/business';
 import { calculateTotalEmission } from '@/constants/emissionFactors';
 import { costToUsage } from '@/constants/unitPrices';
 import { getIndustryBenchmark } from '@/constants/industryData';
 import { calculateRiskLevel } from '@/constants/riskLevel';
 import { isPositiveNumber, isNonEmptyString } from '@/lib/types/guards';
+import { generateUUID } from '@/lib/utils/uuid';
 
 interface BusinessStore extends BusinessState {
   // Actions
@@ -24,7 +24,7 @@ interface BusinessStore extends BusinessState {
 }
 
 const initialState: BusinessState = {
-  sessionId: uuidv4(),
+  sessionId: generateUUID(),
   inputMode: 'usage',
   industry: '',
   electricity: 0,
@@ -102,7 +102,7 @@ export const useBusinessStore = create<BusinessStore>((set, get) => ({
   reset: () => {
     set({
       ...initialState,
-      sessionId: uuidv4(),
+      sessionId: generateUUID(),
       createdAt: new Date().toISOString()
     });
   }
