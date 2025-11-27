@@ -60,10 +60,10 @@ export default function BlogPage() {
         />
 
         {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="blog-top" className="my-8" />
+        <AdSenseSlot slotId="blog-top" className="my-4 sm:my-5" />
 
         {/* 검색 및 필터 */}
-        <Card className="p-4 sm:p-6 mb-6 sm:mb-8">
+        <Card className="p-4 sm:p-6 mb-4 sm:mb-5">
           <div className="space-y-4">
             {/* 검색 */}
             <div>
@@ -139,7 +139,7 @@ export default function BlogPage() {
         </Card>
 
         {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="blog-middle" className="my-8" />
+        <AdSenseSlot slotId="blog-middle" className="my-4 sm:my-5" />
 
         {/* 블로그 포스트 목록 */}
         {posts.length > 0 ? (
@@ -206,10 +206,10 @@ export default function BlogPage() {
         )}
 
         {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="blog-bottom" className="my-8" />
+        <AdSenseSlot slotId="blog-bottom" className="my-4 sm:my-5" />
 
         {/* 인기 글 추천 */}
-        <div className="mt-8 sm:mt-12">
+        <div className="mt-5 sm:mt-6 md:mt-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">인기 글</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {/* 인기 글은 별도 컴포넌트로 분리 가능 */}

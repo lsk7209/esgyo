@@ -87,7 +87,7 @@ export default function CarbonPointCalculatorPage() {
       <JSONLD type="FAQPage" data={faqData} />
       <PageContainer maxWidth="4xl">
         {/* 뒤로가기 버튼 */}
-        <div className="mb-4 sm:mb-6">
+        <div className="mb-3 sm:mb-4">
           <Link href="/calculator">
             <Button variant="ghost" size="sm" className="text-gray-600 hover:text-gray-900">
               ← 계산기 목록으로
@@ -101,13 +101,13 @@ export default function CarbonPointCalculatorPage() {
         />
 
         {/* AdSense Slot 1 - 상단 */}
-        <AdSenseSlot slotId="calculator-carbon-top" className="my-8" />
+        <AdSenseSlot slotId="calculator-carbon-top" className="my-4 sm:my-5" />
 
         {/* 입력 폼 */}
-        <Card className="p-4 sm:p-6 mb-4 sm:mb-6">
+        <Card className="p-4 sm:p-6 mb-3 sm:mb-4">
           <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">나의 친환경 활동 입력</h2>
           
-          <div className="space-y-5 sm:space-y-6">
+          <div className="space-y-4 sm:space-y-5">
             <div className="p-4 sm:p-5 bg-green-50/50 rounded-lg border border-green-100">
               <Label htmlFor="tumbler" className="text-sm sm:text-base font-semibold text-gray-800 flex items-center gap-2 mb-2">
                 <span className="text-lg">☕</span>
@@ -195,13 +195,13 @@ export default function CarbonPointCalculatorPage() {
         </Card>
 
         {/* AdSense Slot 2 - 중단 */}
-        <AdSenseSlot slotId="calculator-carbon-middle" className="my-8" />
+        <AdSenseSlot slotId="calculator-carbon-middle" className="my-4 sm:my-5" />
 
         {/* 결과 카드 */}
         {hasInput && (
-          <Card className="p-6 sm:p-8 md:p-10 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-2 border-green-200 shadow-xl">
-            <div className="text-center space-y-5 sm:space-y-7">
-              <div className="space-y-3">
+          <Card className="p-5 sm:p-6 md:p-8 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-2 border-green-200 shadow-xl">
+            <div className="text-center space-y-4 sm:space-y-5">
+              <div className="space-y-2 sm:space-y-3">
                 <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-3 leading-relaxed font-medium">
                   당신이 1년 동안 받을 수 있는 예상 포인트는
                 </p>
@@ -215,7 +215,7 @@ export default function CarbonPointCalculatorPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 pt-6 sm:pt-8 border-t border-green-200">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-5 border-t border-green-200">
                 <div className="text-center p-3 sm:p-4 md:p-5 bg-white/60 rounded-xl hover:bg-white/80 transition-colors">
                   <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-700 mb-2 break-words">
                     {formatEmission(co2Reduction / 1000, 2)} tCO₂
@@ -253,10 +253,10 @@ export default function CarbonPointCalculatorPage() {
         )}
 
         {/* AdSense Slot 3 - 하단 */}
-        <AdSenseSlot slotId="calculator-carbon-bottom" className="my-8" />
+        <AdSenseSlot slotId="calculator-carbon-bottom" className="my-4 sm:my-5" />
 
         {/* 다른 계산기 추천 */}
-        <div className="mt-8 sm:mt-12">
+        <div className="mt-5 sm:mt-6 md:mt-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">다른 계산기도 확인해보세요</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <Link href="/calculator/electricity">

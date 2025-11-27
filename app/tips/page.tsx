@@ -60,10 +60,10 @@ export default function TipsPage() {
         />
 
         {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="tips-top" className="my-8" />
+        <AdSenseSlot slotId="tips-top" className="my-4 sm:my-5" />
 
         {/* 검색 및 필터 */}
-        <Card className="p-4 sm:p-6 mb-6 sm:mb-8">
+        <Card className="p-4 sm:p-6 mb-4 sm:mb-5">
           <div className="space-y-4">
             {/* 검색 */}
             <div>
@@ -139,7 +139,7 @@ export default function TipsPage() {
         </Card>
 
         {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="tips-middle" className="my-8" />
+        <AdSenseSlot slotId="tips-middle" className="my-4 sm:my-5" />
 
         {/* 절약 팁 목록 */}
         {tips.length > 0 ? (
@@ -202,10 +202,10 @@ export default function TipsPage() {
         )}
 
         {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="tips-bottom" className="my-8" />
+        <AdSenseSlot slotId="tips-bottom" className="my-4 sm:my-5" />
 
         {/* 미니 계산기 섹션 (기존 유지) */}
-        <div className="mt-8 sm:mt-12">
+        <div className="mt-5 sm:mt-6 md:mt-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">빠른 계산기</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <Link href="/calculator/electricity">

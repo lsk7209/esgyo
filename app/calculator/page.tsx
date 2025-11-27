@@ -48,7 +48,7 @@ export default function CalculatorMainPage() {
         />
 
         {/* AdSense Slot 1 - 상단 */}
-        <AdSenseSlot slotId="calculator-top" className="my-8" />
+        <AdSenseSlot slotId="calculator-top" className="my-4 sm:my-5" />
 
         {/* 메인 계산기 - 탄소중립포인트 (강조) */}
         <div className="mb-8 sm:mb-12">
@@ -89,10 +89,10 @@ export default function CalculatorMainPage() {
         </div>
 
         {/* AdSense Slot 2 - 중단 */}
-        <AdSenseSlot slotId="calculator-middle" className="my-8" />
+        <AdSenseSlot slotId="calculator-middle" className="my-4 sm:my-5" />
 
         {/* 다른 계산기 목록 */}
-        <div className="mb-8 sm:mb-12">
+        <div className="mb-5 sm:mb-6 md:mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">📊 다른 계산기</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -200,7 +200,7 @@ export default function CalculatorMainPage() {
         </div>
 
         {/* AdSense Slot 3 - 하단 */}
-        <AdSenseSlot slotId="calculator-bottom" className="my-8" />
+        <AdSenseSlot slotId="calculator-bottom" className="my-4 sm:my-5" />
 
         {/* 관련 가이드 섹션 */}
         <div className="mt-8 sm:mt-12">

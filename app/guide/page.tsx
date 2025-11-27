@@ -69,10 +69,10 @@ export default function GuidePage() {
         />
 
         {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="guide-top" className="my-8" />
+        <AdSenseSlot slotId="guide-top" className="my-4 sm:my-5" />
 
         {/* FAQ 섹션 */}
-        <div className="space-y-4 sm:space-y-6">
+        <div className="space-y-3 sm:space-y-4">
           <Card className="p-4 sm:p-6">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">탄소중립포인트는 어떻게 신청하나요?</h2>
             <div className="text-sm sm:text-base text-gray-700 mb-4 space-y-3 leading-relaxed">
@@ -95,7 +95,7 @@ export default function GuidePage() {
             </Link>
           </Card>
 
-          <AdSenseSlot slotId="guide-middle-1" className="my-4 sm:my-6" />
+          <AdSenseSlot slotId="guide-middle-1" className="my-3 sm:my-4" />
 
           <Card className="p-4 sm:p-6">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">스타벅스 텀블러 할인과 중복되나요?</h2>
@@ -120,7 +120,7 @@ export default function GuidePage() {
             </Link>
           </Card>
 
-          <AdSenseSlot slotId="guide-middle-2" className="my-4 sm:my-6" />
+          <AdSenseSlot slotId="guide-middle-2" className="my-3 sm:my-4" />
 
           <Card className="p-4 sm:p-6">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">탄소중립포인트는 어디서 사용할 수 있나요?</h2>
@@ -141,7 +141,7 @@ export default function GuidePage() {
             </Link>
           </Card>
 
-          <AdSenseSlot slotId="guide-middle-3" className="my-4 sm:my-6" />
+          <AdSenseSlot slotId="guide-middle-3" className="my-3 sm:my-4" />
 
           <Card className="p-4 sm:p-6">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">대중교통 이용 거리는 어떻게 확인하나요?</h2>
@@ -181,10 +181,10 @@ export default function GuidePage() {
         </div>
 
         {/* AdSense Slot 2 - 하단 */}
-        <AdSenseSlot slotId="guide-bottom" className="my-8" />
+        <AdSenseSlot slotId="guide-bottom" className="my-4 sm:my-5" />
 
         {/* CTA */}
-        <div className="mt-8 sm:mt-12 text-center space-y-3 sm:space-y-4">
+        <div className="mt-5 sm:mt-6 md:mt-8 text-center space-y-3 sm:space-y-4">
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link href="/calculator" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 min-h-[44px]">

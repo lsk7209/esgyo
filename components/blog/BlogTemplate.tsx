@@ -94,9 +94,9 @@ export default function BlogTemplate({
   adSlotIds = {},
 }: BlogTemplateProps) {
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="space-y-4 sm:space-y-5 md:space-y-6">
       {/* 헤더 */}
-      <div className="space-y-4">
+      <div className="space-y-2 sm:space-y-3">
         {category && (
           <div className="flex items-center gap-2">
             <span className="text-xl">{category.icon}</span>
@@ -129,12 +129,12 @@ export default function BlogTemplate({
 
       {/* AdSense Slot - 상단 */}
       {adSlotIds.top && (
-        <AdSenseSlot slotId={adSlotIds.top} className="my-8" />
+        <AdSenseSlot slotId={adSlotIds.top} className="my-4 sm:my-5" />
       )}
 
       {/* 핵심 요약 (AEO 최적화) */}
-      <Card className="p-6 sm:p-8 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+      <Card className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
           {summary.question}
         </h2>
         <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
@@ -142,13 +142,13 @@ export default function BlogTemplate({
         </p>
       </Card>
 
-      {/* 본문 섹션 */}
-      {sections.map((section, index) => (
-        <div key={index}>
-          <Card className="p-6 sm:p-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
-              {section.title}
-            </h2>
+        {/* 본문 섹션 */}
+        {sections.map((section, index) => (
+          <div key={index}>
+            <Card className="p-4 sm:p-5 md:p-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+                {section.title}
+              </h2>
             
             <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-700 leading-relaxed">
               {typeof section.content === 'string' ? (
@@ -160,7 +160,7 @@ export default function BlogTemplate({
             
             {/* 하위 섹션 */}
             {section.subsections && section.subsections.length > 0 && (
-              <div className="mt-6 space-y-4">
+              <div className="mt-4 sm:mt-5 space-y-3 sm:space-y-4">
                 {section.subsections.map((subsection, subIndex) => (
                   <div key={subIndex} className="pl-4 border-l-4 border-green-200">
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
@@ -181,15 +181,15 @@ export default function BlogTemplate({
           
           {/* 섹션 사이 AdSense (중간) */}
           {index === Math.floor(sections.length / 2) - 1 && adSlotIds.middle && (
-            <AdSenseSlot slotId={adSlotIds.middle} className="my-8" />
+            <AdSenseSlot slotId={adSlotIds.middle} className="my-4 sm:my-5" />
           )}
         </div>
       ))}
 
       {/* 내부 링크 섹션 */}
       {internalLinks.length > 0 && (
-        <Card className="p-6 sm:p-8 bg-blue-50 border-blue-200">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+        <Card className="p-4 sm:p-5 md:p-6 bg-blue-50 border-blue-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             관련 콘텐츠
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -213,8 +213,8 @@ export default function BlogTemplate({
 
       {/* 외부 링크 섹션 */}
       {externalLinks.length > 0 && (
-        <Card className="p-6 sm:p-8 bg-gray-50">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+        <Card className="p-4 sm:p-5 md:p-6 bg-gray-50">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             참고 자료
           </h2>
           <ul className="space-y-3">
@@ -242,11 +242,11 @@ export default function BlogTemplate({
 
       {/* FAQ 섹션 (AEO 최적화) */}
       {faq.length > 0 && (
-        <Card className="p-6 sm:p-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+        <Card className="p-4 sm:p-5 md:p-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             자주 묻는 질문
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faq.map((item, index) => (
               <div key={index} className="border-b border-gray-200 pb-4 last:border-0">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -263,13 +263,13 @@ export default function BlogTemplate({
 
       {/* AdSense Slot - 하단 */}
       {adSlotIds.bottom && (
-        <AdSenseSlot slotId={adSlotIds.bottom} className="my-8" />
+        <AdSenseSlot slotId={adSlotIds.bottom} className="my-4 sm:my-5" />
       )}
 
       {/* CTA 섹션 */}
       {cta && (
-        <Card className="p-6 sm:p-8 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
-          <div className="text-center space-y-4">
+        <Card className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
+          <div className="text-center space-y-3 sm:space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
               {cta.title}
             </h2>
