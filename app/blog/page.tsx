@@ -1,113 +1,224 @@
 /**
- * 블로그 페이지
- * AdSense 최적화 롱폼 콘텐츠
+ * 블로그 메인 페이지
+ * 확장 가능한 콘텐츠 관리 구조
  */
 
+'use client';
+
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
 import AdSenseSlot from '@/components/ads/AdSenseSlot';
+import { BLOG_CATEGORIES, CONTENT_CATEGORIES } from '@/constants/contentCategories';
+import { getContentList, getAllTags } from '@/lib/content';
+import type { ContentCategory } from '@/types/content';
+import JSONLD from '@/components/seo/JSONLD';
 
 export default function BlogPage() {
-  const posts = [
-    {
-      title: '탄소중립포인트로 연간 7만원 받은 후기',
-      excerpt: '텀블러 사용과 대중교통 이용만으로도 연간 7만원의 포인트를 받을 수 있었던 실제 경험을 공유합니다.',
-      content: `작년 한 해 동안 탄소중립포인트 제도를 활용하여 연간 7만원의 포인트를 받을 수 있었습니다. 
-      특별한 노력을 하지 않고도 일상 속 작은 실천만으로 이 정도의 포인트를 받을 수 있다는 것을 직접 경험했습니다.
-      
-      주로 텀블러 사용과 대중교통 이용을 통해 포인트를 받았는데, 주 3-4회 정도 텀블러를 사용하고 
-      월 평균 100km 정도 대중교통을 이용했습니다. 이렇게 꾸준히 실천한 결과 연간 약 7만원의 포인트를 받을 수 있었습니다.
-      
-      포인트는 제휴 은행 포인트로 전환하여 사용했는데, 매우 간편하게 전환할 수 있었습니다. 
-      앞으로도 계속 실천하여 더 많은 포인트를 받을 계획입니다.`,
-      date: '2025-01-15',
-    },
-    {
-      title: '스타벅스 텀블러 할인과 탄소중립포인트 중복 받는 방법',
-      excerpt: '카페 할인과 정부 포인트를 동시에 받는 꿀팁을 알려드립니다.',
-      content: `많은 분들이 궁금해하시는 부분인데, 스타벅스 텀블러 할인과 탄소중립포인트는 중복으로 받을 수 있습니다.
-      
-      스타벅스에서는 텀블러를 가져오면 음료 가격에서 일정 금액을 할인해주는데, 이는 카페의 정책입니다. 
-      반면 탄소중립포인트는 정부에서 운영하는 제도로, 두 제도는 완전히 별개입니다.
-      
-      따라서 스타벅스에서 텀블러 할인을 받으면서 동시에 환경부에 탄소중립포인트를 신청하면 
-      할인 혜택과 포인트를 모두 받을 수 있습니다. 이는 친환경 실천을 장려하는 좋은 방법이므로 적극 활용하시기 바랍니다.`,
-      date: '2025-01-10',
-    },
-    {
-      title: '대중교통 이용으로 환경도 지키고 포인트도 받기',
-      excerpt: '승용차 대신 대중교통을 이용하면 환경도 지키고 포인트도 받을 수 있는 방법을 소개합니다.',
-      content: `승용차 대신 대중교통을 이용하면 환경도 지키고 탄소중립포인트도 받을 수 있습니다.
-      
-      대중교통 이용 거리 1km당 5포인트를 받을 수 있는데, 월 100km만 이용해도 연간 6,000원의 포인트를 받을 수 있습니다. 
-      통근 거리가 긴 분들이라면 더 많은 포인트를 받을 수 있습니다.
-      
-      교통카드 사용 내역이나 대중교통 앱의 이용 기록을 통해 거리를 확인할 수 있으며, 
-      환경부 앱에 이 정보를 연동하거나 수동으로 입력하여 신청할 수 있습니다.
-      
-      대중교통 이용은 환경 보호에도 도움이 되고 포인트도 받을 수 있어 일석이조입니다.`,
-      date: '2025-01-05',
-    },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState<ContentCategory | 'all'>('all');
+  const [selectedTag, setSelectedTag] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // 블로그 포스트 목록 (실제로는 서버 컴포넌트에서 가져오거나 API 호출)
+  const posts = useMemo(() => {
+    return getContentList({
+      type: 'blog',
+      category: selectedCategory !== 'all' ? selectedCategory : undefined,
+      tag: selectedTag || undefined,
+      search: searchQuery || undefined,
+      limit: 12,
+    });
+  }, [selectedCategory, selectedTag, searchQuery]);
+
+  const tags = useMemo(() => getAllTags('blog'), []);
+
+  // FAQ JSON-LD
+  const faqData = useMemo(() => ({
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '어떤 주제의 블로그 글이 있나요?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '탄소중립포인트, 절약, 환경, 라이프스타일, 뉴스/트렌드, 후기/사례 등 다양한 주제의 블로그 글을 제공합니다. 카테고리별로 분류되어 있어 원하는 주제를 쉽게 찾을 수 있습니다.'
+        }
+      },
+    ]
+  }), []);
 
   return (
-    <PageContainer maxWidth="4xl">
-      <PageHeader
-        title="탄소중립포인트 이야기"
-        description="실제 사용자 후기와 절약 팁을 공유합니다"
-      />
+    <>
+      <JSONLD type="FAQPage" data={faqData} />
+      <PageContainer maxWidth="4xl">
+        <PageHeader
+          title="블로그 - 친환경 라이프스타일 가이드"
+          description="탄소중립포인트, 절약 팁, 환경 정보 등 유용한 콘텐츠를 만나보세요"
+        />
 
-      {/* AdSense Slot 1 */}
-      <AdSenseSlot slotId="blog-top" className="my-8" />
+        {/* AdSense Slot 1 */}
+        <AdSenseSlot slotId="blog-top" className="my-8" />
 
-      {/* 블로그 포스트 목록 */}
-      <div className="space-y-6">
-        {posts.map((post, index) => (
-          <div key={index}>
-            <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 gap-2">
-                <h2 className="text-xl sm:text-2xl font-bold leading-tight">{post.title}</h2>
-                <span className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">{post.date}</span>
+        {/* 검색 및 필터 */}
+        <Card className="p-4 sm:p-6 mb-6 sm:mb-8">
+          <div className="space-y-4">
+            {/* 검색 */}
+            <div>
+              <Input
+                type="text"
+                placeholder="검색어를 입력하세요..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full h-11 sm:h-12 text-base"
+              />
+            </div>
+
+            {/* 카테고리 필터 */}
+            <div>
+              <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 text-gray-700">카테고리</h3>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  variant={selectedCategory === 'all' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setSelectedCategory('all')}
+                  className="min-h-[36px]"
+                >
+                  전체
+                </Button>
+                {BLOG_CATEGORIES.map((category) => {
+                  const config = CONTENT_CATEGORIES[category];
+                  return (
+                    <Button
+                      key={category}
+                      variant={selectedCategory === category ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => {
+                        setSelectedCategory(category);
+                        setSelectedTag('');
+                      }}
+                      className="min-h-[36px]"
+                    >
+                      {config.icon} {config.name}
+                    </Button>
+                  );
+                })}
               </div>
-              <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed">{post.excerpt}</p>
-              <div className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-3">
-                {post.content.split('\n').slice(0, 3).join(' ')}
+            </div>
+
+            {/* 태그 필터 */}
+            {tags.length > 0 && (
+              <div>
+                <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 text-gray-700">태그</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    variant={!selectedTag ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setSelectedTag('')}
+                    className="min-h-[36px]"
+                  >
+                    전체
+                  </Button>
+                  {tags.slice(0, 10).map((tag) => (
+                    <Button
+                      key={tag}
+                      variant={selectedTag === tag ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedTag(tag)}
+                      className="min-h-[36px]"
+                    >
+                      #{tag}
+                    </Button>
+                  ))}
+                </div>
               </div>
-              <Button variant="outline" size="sm" className="min-h-[36px]">
-                더 읽기 →
-              </Button>
-            </Card>
-            
-            {/* 포스트 사이 광고 슬롯 */}
-            {index < posts.length - 1 && (
-              <AdSenseSlot slotId={`blog-middle-${index + 1}`} className="my-6" />
             )}
           </div>
-        ))}
-      </div>
+        </Card>
 
-      {/* AdSense Slot 2 - 하단 */}
-      <AdSenseSlot slotId="blog-bottom" className="my-8" />
+        {/* AdSense Slot 2 */}
+        <AdSenseSlot slotId="blog-middle" className="my-8" />
 
-      {/* CTA */}
-      <div className="mt-8 sm:mt-12 text-center space-y-3 sm:space-y-4">
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-          <Link href="/calculator" className="w-full sm:w-auto">
-            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 min-h-[44px]">
-              내 포인트 계산하기
-            </Button>
-          </Link>
-          <Link href="/guide" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto min-h-[44px]">
-              신청 가이드 보기
-            </Button>
-          </Link>
+        {/* 블로그 포스트 목록 */}
+        {posts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {posts.map((post) => {
+              const categoryConfig = CONTENT_CATEGORIES[post.category];
+              return (
+                <Link key={post.id} href={`/blog/${post.slug}`}>
+                  <Card className="p-4 sm:p-5 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group border hover:border-green-300">
+                    {post.image && (
+                      <div className="aspect-video bg-gray-100 rounded-lg mb-3 sm:mb-4 overflow-hidden">
+                        <img 
+                          src={post.image} 
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )}
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">{categoryConfig.icon}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full bg-${categoryConfig.color}-100 text-${categoryConfig.color}-700`}>
+                        {categoryConfig.name}
+                      </span>
+                      {post.featured && (
+                        <span className="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-700">
+                          추천
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-700 transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-2">
+                      {post.description}
+                    </p>
+                    <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">
+                      <span>{new Date(post.publishedAt).toLocaleDateString('ko-KR')}</span>
+                      {post.readingTime && (
+                        <span>읽는 시간 {post.readingTime}분</span>
+                      )}
+                    </div>
+                    {post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mt-3">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span key={tag} className="text-xs text-gray-500">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <Card className="p-8 sm:p-12 text-center">
+            <p className="text-gray-600 text-base sm:text-lg">
+              {searchQuery || selectedCategory !== 'all' || selectedTag
+                ? '검색 결과가 없습니다.'
+                : '아직 등록된 글이 없습니다.'}
+            </p>
+          </Card>
+        )}
+
+        {/* AdSense Slot 3 */}
+        <AdSenseSlot slotId="blog-bottom" className="my-8" />
+
+        {/* 인기 글 추천 */}
+        <div className="mt-8 sm:mt-12">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">인기 글</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {/* 인기 글은 별도 컴포넌트로 분리 가능 */}
+            <Card className="p-4 sm:p-6">
+              <p className="text-sm text-gray-600">인기 글 기능은 콘텐츠가 추가되면 자동으로 표시됩니다.</p>
+            </Card>
+          </div>
         </div>
-      </div>
-    </PageContainer>
+      </PageContainer>
+    </>
   );
 }
-

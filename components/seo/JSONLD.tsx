@@ -9,7 +9,7 @@
 import { useMemo } from 'react';
 
 interface JSONLDProps {
-  type: 'FAQPage' | 'SoftwareApplication' | 'WebSite' | 'Organization';
+  type: 'FAQPage' | 'SoftwareApplication' | 'WebSite' | 'Organization' | 'Article' | 'HowTo';
   data: Record<string, unknown>;
 }
 
