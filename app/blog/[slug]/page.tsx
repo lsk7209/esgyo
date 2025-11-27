@@ -1,18 +1,19 @@
 /**
  * 블로그 포스트 상세 페이지
  * 동적 라우팅으로 확장 가능한 구조
+ * SEO/GenEO/AEO 최적화 템플릿 적용
  */
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import PageContainer from '@/components/layout/PageContainer';
-import AdSenseSlot from '@/components/ads/AdSenseSlot';
+import BlogTemplate from '@/components/blog/BlogTemplate';
 import { getContent, getRelatedContent } from '@/lib/content';
 import { CONTENT_CATEGORIES } from '@/constants/contentCategories';
 import JSONLD from '@/components/seo/JSONLD';
 import type { Metadata } from 'next';
+import type { BlogPost } from '@/types/content';
 
 interface BlogPostPageProps {
   params: {
@@ -56,6 +57,51 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const categoryConfig = CONTENT_CATEGORIES[post.category];
   const relatedPosts = getRelatedContent(post.id, 3);
 
+  // BlogTemplate에 필요한 데이터 변환
+  // 실제로는 post 데이터 구조를 BlogTemplate 형식에 맞게 변환
+  // 여기서는 간단한 예시로 처리
+  const templateData = {
+    title: post.title,
+    metaDescription: post.description,
+    publishedAt: post.publishedAt,
+    updatedAt: post.updatedAt,
+    readingTime: post.readingTime,
+    category: categoryConfig ? {
+      name: categoryConfig.name,
+      icon: categoryConfig.icon,
+    } : undefined,
+    summary: {
+      question: post.title.includes('?') ? post.title : `${post.title}?`,
+      answer: post.excerpt || post.description,
+    },
+    sections: [
+      {
+        title: '상세 내용',
+        content: post.content,
+      },
+    ],
+    faq: [], // FAQ는 별도로 관리하거나 post 데이터에 포함
+    internalLinks: post.internalLinks || [],
+    externalLinks: post.externalLinks || [],
+    cta: {
+      title: '탄소중립포인트를 받아보세요',
+      description: '일상 속 작은 실천으로 연간 최대 7만원까지 받을 수 있습니다',
+      primaryButton: {
+        text: '포인트 계산하기',
+        url: '/calculator/carbon-point',
+      },
+      secondaryButton: {
+        text: '신청 가이드 보기',
+        url: '/guide',
+      },
+    },
+    adSlotIds: {
+      top: `blog-post-${post.slug}-top`,
+      middle: `blog-post-${post.slug}-middle`,
+      bottom: `blog-post-${post.slug}-bottom`,
+    },
+  };
+
   // Article JSON-LD
   const articleData = {
     headline: post.title,
@@ -65,7 +111,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     dateModified: post.updatedAt || post.publishedAt,
     author: {
       '@type': 'Organization',
-      name: '이에스지요',
+      name: post.author || '이에스지요',
     },
     publisher: {
       '@type': 'Organization',
@@ -86,79 +132,19 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </Link>
         </div>
 
-        {/* 헤더 */}
-        <div className="mb-6 sm:mb-8">
-          <div className="flex items-center gap-2 mb-3 sm:mb-4">
-            <span className="text-xl">{categoryConfig.icon}</span>
-            <span className={`px-3 py-1 rounded-full text-sm font-medium bg-${categoryConfig.color}-100 text-${categoryConfig.color}-700`}>
-              {categoryConfig.name}
-            </span>
-            {post.featured && (
-              <span className="px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-700">
-                추천
-              </span>
-            )}
-          </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-            {post.title}
-          </h1>
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-gray-600">
-            <span>{new Date(post.publishedAt).toLocaleDateString('ko-KR')}</span>
-            {post.readingTime && (
-              <>
-                <span>•</span>
-                <span>읽는 시간 {post.readingTime}분</span>
-              </>
-            )}
-            {post.viewCount !== undefined && (
-              <>
-                <span>•</span>
-                <span>조회 {post.viewCount.toLocaleString()}</span>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* AdSense Slot 1 */}
-        <AdSenseSlot slotId="blog-post-top" className="my-8" />
-
-        {/* 본문 */}
-        <Card className="p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
-          <div 
-            className="prose prose-sm sm:prose-base lg:prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-        </Card>
-
-        {/* AdSense Slot 2 */}
-        <AdSenseSlot slotId="blog-post-middle" className="my-8" />
-
-        {/* 태그 */}
-        {post.tags.length > 0 && (
-          <div className="mb-6 sm:mb-8">
-            <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 text-gray-700">태그</h3>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <Link key={tag} href={`/blog?tag=${tag}`}>
-                  <Button variant="outline" size="sm" className="min-h-[36px]">
-                    #{tag}
-                  </Button>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <BlogTemplate {...templateData} />
 
         {/* 관련 글 */}
         {relatedPosts.length > 0 && (
-          <div className="mb-6 sm:mb-8">
+          <div className="mt-8 sm:mt-12">
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">관련 글</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {relatedPosts.map((related) => {
+                if (related.type !== 'blog') return null;
                 const relatedCategoryConfig = CONTENT_CATEGORIES[related.category];
                 return (
                   <Link key={related.id} href={`/blog/${related.slug}`}>
-                    <Card className="p-4 sm:p-5 hover:shadow-lg transition-shadow cursor-pointer h-full">
+                    <div className="p-4 sm:p-5 border rounded-lg hover:shadow-lg transition-shadow cursor-pointer h-full">
                       <div className="flex items-center gap-2 mb-2">
                         <span>{relatedCategoryConfig.icon}</span>
                         <span className="text-xs text-gray-600">{relatedCategoryConfig.name}</span>
@@ -169,42 +155,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                       <p className="text-sm text-gray-600 line-clamp-2">
                         {related.description}
                       </p>
-                    </Card>
+                    </div>
                   </Link>
                 );
               })}
             </div>
           </div>
         )}
-
-        {/* AdSense Slot 3 */}
-        <AdSenseSlot slotId="blog-post-bottom" className="my-8" />
-
-        {/* CTA */}
-        <Card className="p-6 sm:p-8 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
-          <div className="text-center space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-              탄소중립포인트를 받아보세요
-            </h3>
-            <p className="text-sm sm:text-base text-gray-700">
-              일상 속 작은 실천으로 연간 최대 7만원까지 받을 수 있습니다
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Link href="/calculator/carbon-point">
-                <Button className="bg-green-600 hover:bg-green-700 text-white min-h-[48px] px-6 sm:px-8">
-                  포인트 계산하기
-                </Button>
-              </Link>
-              <Link href="/guide">
-                <Button variant="outline" className="min-h-[48px] px-6 sm:px-8">
-                  신청 가이드 보기
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </Card>
       </PageContainer>
     </>
   );
 }
-
