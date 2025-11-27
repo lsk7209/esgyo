@@ -216,7 +216,7 @@ export default function AdminPage() {
                 <label className="text-sm font-semibold mb-2 block">사이트 URL</label>
                 <input
                   type="text"
-                  defaultValue={process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'}
+                  defaultValue={process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr'}
                   className="w-full p-2 border rounded"
                   readOnly
                 />
@@ -225,7 +225,7 @@ export default function AdminPage() {
                 <label className="text-sm font-semibold mb-2 block">RSS 피드 URL</label>
                 <input
                   type="text"
-                  defaultValue={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'}/rss.xml`}
+                  defaultValue={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr'}/rss.xml`}
                   className="w-full p-2 border rounded"
                   readOnly
                 />
@@ -234,7 +234,7 @@ export default function AdminPage() {
                 <label className="text-sm font-semibold mb-2 block">사이트맵 URL</label>
                 <input
                   type="text"
-                  defaultValue={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'}/sitemap.xml`}
+                  defaultValue={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr'}/sitemap.xml`}
                   className="w-full p-2 border rounded"
                   readOnly
                 />

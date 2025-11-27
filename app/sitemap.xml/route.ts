@@ -7,7 +7,7 @@
 import { getContentList } from '@/lib/content';
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr';
   
   // 정적 라우트
   const staticRoutes = [

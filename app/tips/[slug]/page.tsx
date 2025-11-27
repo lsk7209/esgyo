@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: TipPostPageProps): Promise<Me
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr';
   
   return {
     title: tip.metaTitle || tip.title,

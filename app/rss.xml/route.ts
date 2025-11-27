@@ -6,7 +6,7 @@
 import { getContentList } from '@/lib/content';
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr';
   
   // 블로그 포스트와 절약 팁 가져오기
   const blogPosts = getContentList({ type: 'blog', limit: 20 });

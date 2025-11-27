@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr';
   
   return {
     title: post.metaTitle || post.title,

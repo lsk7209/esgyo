@@ -6,7 +6,7 @@
  * 공개 환경 변수 (클라이언트에서 접근 가능)
  */
 export const env = {
-  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com',
+  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr',
   NODE_ENV: process.env.NODE_ENV || 'development',
 } as const;
 

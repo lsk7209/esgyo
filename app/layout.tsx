@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr'),
   alternates: {
     canonical: '/',
   },
     openGraph: {
       type: 'website',
       locale: 'ko_KR',
-      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com',
+      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr',
       siteName: '이에스지요',
       title: '이에스지요 - 탄소중립포인트 계산기',
       description: '올해 내가 받을 수 있는 탄소중립포인트를 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.',
@@ -83,7 +83,7 @@ export default function RootLayout({
             rel="alternate"
             type="application/rss+xml"
             title="이에스지요 RSS 피드"
-            href={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'}/rss.xml`}
+            href={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr'}/rss.xml`}
           />
           {/* 네이버 사이트 인증 */}
           <meta name="naver-site-verification" content="185f598fcbac0e203a862c1e797574d9b59a059e" />

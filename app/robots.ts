@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'}/sitemap.xml`, // env.ts 사용 시 클라이언트 컴포넌트에서만 가능
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr'}/sitemap.xml`, // env.ts 사용 시 클라이언트 컴포넌트에서만 가능
   };
 }
 
