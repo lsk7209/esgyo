@@ -74,7 +74,7 @@
 프로덕션 배포 시 다음 환경 변수를 설정하세요:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://esgyo.com
+NEXT_PUBLIC_SITE_URL=https://esgyo.kr
 NODE_ENV=production
 ```
 

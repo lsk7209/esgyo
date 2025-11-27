@@ -6,14 +6,14 @@
 `NEXT_PUBLIC_` 접두사가 붙은 변수만 클라이언트에서 접근 가능합니다.
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://esgyo.com
+NEXT_PUBLIC_SITE_URL=https://esgyo.kr
 ```
 
 ### 타입 안전 환경 변수 (`lib/env.ts`)
 
 ```typescript
 export const env = {
-  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com',
+  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.kr',
   NODE_ENV: process.env.NODE_ENV || 'development',
 } as const;
 ```
@@ -56,7 +56,7 @@ NODE_ENV=development
 
 ### 프로덕션 환경
 ```env
-NEXT_PUBLIC_SITE_URL=https://esgyo.com
+NEXT_PUBLIC_SITE_URL=https://esgyo.kr
 NODE_ENV=production
 ```
 

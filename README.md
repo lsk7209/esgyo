@@ -136,7 +136,7 @@ npm start
 ## 환경 변수
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://esgyo.com
+NEXT_PUBLIC_SITE_URL=https://esgyo.kr
 NODE_ENV=production
 ```
 
