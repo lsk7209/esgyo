@@ -17,10 +17,17 @@ export function registerContent(content: BlogPost | TipPost): void {
 }
 
 /**
- * 콘텐츠 조회
+ * 콘텐츠 조회 (ID 또는 slug로 조회)
  */
-export function getContent(id: string): BlogPost | TipPost | undefined {
-  return contentStore.get(id);
+export function getContent(idOrSlug: string): BlogPost | TipPost | undefined {
+  // 먼저 ID로 조회 시도
+  const byId = contentStore.get(idOrSlug);
+  if (byId) return byId;
+  
+  // slug로 조회
+  return Array.from(contentStore.values()).find(
+    content => content.slug === idOrSlug
+  );
 }
 
 /**
@@ -151,5 +158,19 @@ export function getPopularContent(
   return results
     .sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))
     .slice(0, limit);
+}
+
+/**
+ * 모든 콘텐츠의 slug 목록 조회 (동적 라우팅용)
+ */
+export function getAllContentSlugs(type?: ContentType): string[] {
+  let contents = Array.from(contentStore.values())
+    .filter(content => content.status === 'published');
+  
+  if (type) {
+    contents = contents.filter(content => content.type === type);
+  }
+  
+  return contents.map(content => content.slug);
 }
 

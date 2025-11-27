@@ -3,11 +3,26 @@
  * 개인용 탄소중립포인트 계산기
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
+
+export const metadata: Metadata = {
+  title: '탄소중립포인트 계산기 - 올해 내가 받을 수 있는 금액은? | 이에스지요',
+  description: '탄소중립포인트 계산기로 올해 내가 받을 수 있는 포인트와 현금화 금액을 3분만에 계산하세요. 텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 최대 7만원까지 받을 수 있습니다.',
+  keywords: ['탄소중립포인트', '탄소중립 포인트 계산기', '환경부 포인트', '탄소 포인트 현금', '환경 앱테크', '텀블러 할인', '전기요금 절약', '대중교통 탄소 절감'],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: '탄소중립포인트 계산기 - 올해 내가 받을 수 있는 금액은?',
+    description: '탄소중립포인트 계산기로 올해 내가 받을 수 있는 포인트와 현금화 금액을 3분만에 계산하세요.',
+    url: '/',
+  },
+};
 
 export default function Home() {
   return (
@@ -21,11 +36,11 @@ export default function Home() {
         
         <div className="bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600 text-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-xl hover:shadow-2xl transition-shadow duration-300">
           <div className="flex items-center justify-center mb-3">
-            <span className="text-3xl sm:text-4xl md:text-5xl">🌱</span>
+            <span className="text-3xl sm:text-4xl md:text-5xl" role="img" aria-label="친환경 아이콘">🌱</span>
           </div>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 leading-tight">
             연간 최대 70,000원까지 받을 수 있어요!
-          </p>
+          </h1>
           <p className="text-green-50 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             텀블러 사용, 대중교통 이용 등 일상 속 작은 실천으로 포인트를 받아보세요
           </p>
@@ -44,7 +59,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
             <div className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-100 hover:shadow-md active:scale-[0.98] transition-all duration-200">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl sm:text-2xl">☕</span>
+                <span className="text-xl sm:text-2xl" role="img" aria-label="텀블러 아이콘">☕</span>
                 <p className="text-xs sm:text-sm md:text-base font-medium text-gray-700">텀블러 사용</p>
               </div>
               <p className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 mb-1">주 3회</p>
@@ -52,7 +67,7 @@ export default function Home() {
             </div>
             <div className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100 hover:shadow-md active:scale-[0.98] transition-all duration-200">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl sm:text-2xl">🚇</span>
+                <span className="text-xl sm:text-2xl" role="img" aria-label="대중교통 아이콘">🚇</span>
                 <p className="text-xs sm:text-sm md:text-base font-medium text-gray-700">대중교통 이용</p>
               </div>
               <p className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 mb-1">월 100km</p>
@@ -71,7 +86,7 @@ export default function Home() {
       {/* 주요 기능 소개 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-5 sm:mt-6 md:mt-8">
         <Card className="p-4 sm:p-5 md:p-6 lg:p-7 text-center hover:shadow-xl active:scale-[0.98] transition-all duration-300 border-0 bg-white group">
-          <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300">🧮</div>
+          <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300" role="img" aria-label="계산기 아이콘">🧮</div>
           <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-gray-900">정확한 계산</h3>
           <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
             환경부 기준으로 실제 받을 수 있는 포인트를 정확히 계산해드립니다. 
@@ -80,7 +95,7 @@ export default function Home() {
         </Card>
         
         <Card className="p-4 sm:p-5 md:p-6 lg:p-7 text-center hover:shadow-xl active:scale-[0.98] transition-all duration-300 border-0 bg-white group">
-          <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300">📖</div>
+          <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300" role="img" aria-label="가이드 아이콘">📖</div>
           <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-gray-900">신청 가이드</h3>
           <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
             복잡한 정부 제도를 3분 요약으로 쉽게 이해하고 신청할 수 있습니다. 
@@ -89,7 +104,7 @@ export default function Home() {
         </Card>
         
         <Card className="p-4 sm:p-5 md:p-6 lg:p-7 text-center hover:shadow-xl active:scale-[0.98] transition-all duration-300 border-0 bg-white group sm:col-span-2 lg:col-span-1">
-          <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300">💡</div>
+          <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300" role="img" aria-label="절약 팁 아이콘">💡</div>
           <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-gray-900">절약 팁</h3>
           <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
             일상 속에서 쉽게 실천할 수 있는 절약 팁과 추가 포인트 받는 방법을 알려드립니다. 

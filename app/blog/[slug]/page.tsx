@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import PageContainer from '@/components/layout/PageContainer';
 import BlogTemplate from '@/components/blog/BlogTemplate';
-import { getContent, getRelatedContent } from '@/lib/content';
+import { getContent, getRelatedContent, getAllContentSlugs } from '@/lib/content';
 import { CONTENT_CATEGORIES } from '@/constants/contentCategories';
 import JSONLD from '@/components/seo/JSONLD';
 import type { Metadata } from 'next';
@@ -23,7 +23,6 @@ interface BlogPostPageProps {
 
 // 동적 메타데이터 생성
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  // 실제로는 DB 또는 CMS에서 조회
   const post = getContent(params.slug);
   
   if (!post || post.type !== 'blog') {
@@ -32,10 +31,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
+  
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.description,
     keywords: post.keywords,
+    alternates: {
+      canonical: `${baseUrl}/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.description,
@@ -43,8 +47,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       images: post.image ? [post.image] : [],
+      url: `${baseUrl}/blog/${post.slug}`,
     },
   };
+}
+
+// 정적 경로 생성 (SSG)
+export async function generateStaticParams() {
+  const slugs = getAllContentSlugs('blog');
+  return slugs.map((slug) => ({ slug }));
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
@@ -58,11 +69,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const relatedPosts = getRelatedContent(post.id, 3);
 
   // BlogTemplate에 필요한 데이터 변환
-  // 실제로는 post 데이터 구조를 BlogTemplate 형식에 맞게 변환
-  // 여기서는 간단한 예시로 처리
+  // post 데이터에 summary와 sections가 있으면 사용, 없으면 기본 구조 사용
+  const hasStructuredData = 'summary' in post && 'sections' in post;
+  
   const templateData = {
     title: post.title,
-    metaDescription: post.description,
+    metaDescription: post.metaDescription || post.description,
     publishedAt: post.publishedAt,
     updatedAt: post.updatedAt,
     readingTime: post.readingTime,
@@ -70,17 +82,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       name: categoryConfig.name,
       icon: categoryConfig.icon,
     } : undefined,
-    summary: {
+    summary: hasStructuredData && post.summary ? post.summary : {
       question: post.title.includes('?') ? post.title : `${post.title}?`,
       answer: post.excerpt || post.description,
     },
-    sections: [
+    sections: hasStructuredData && post.sections ? post.sections : [
       {
         title: '상세 내용',
         content: post.content,
       },
     ],
-    faq: [], // FAQ는 별도로 관리하거나 post 데이터에 포함
+    faq: hasStructuredData && post.faq ? post.faq : [],
     internalLinks: post.internalLinks || [],
     externalLinks: post.externalLinks || [],
     cta: {
@@ -94,11 +106,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         text: '신청 가이드 보기',
         url: '/guide',
       },
-    },
-    adSlotIds: {
-      top: `blog-post-${post.slug}-top`,
-      middle: `blog-post-${post.slug}-middle`,
-      bottom: `blog-post-${post.slug}-bottom`,
     },
   };
 

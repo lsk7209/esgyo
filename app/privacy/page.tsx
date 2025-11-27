@@ -2,9 +2,23 @@
  * 개인정보처리방침 페이지
  */
 
+import type { Metadata } from 'next';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card } from '@/components/ui/card';
+
+export const metadata: Metadata = {
+  title: '개인정보처리방침 - 이에스지요',
+  description: '이에스지요 서비스 개인정보 처리 방침입니다. 개인정보의 처리 목적, 보유기간, 제3자 제공, 정보주체의 권리 등에 대해 안내합니다.',
+  keywords: ['개인정보처리방침', '개인정보 보호', '이에스지요 개인정보'],
+  alternates: {
+    canonical: '/privacy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PrivacyPage() {
   return (
@@ -17,7 +31,7 @@ export default function PrivacyPage() {
       <Card className="p-8">
         <div className="prose max-w-none space-y-6">
           <section>
-            <h2 className="text-2xl font-bold mb-4">1. 개인정보의 처리 목적</h2>
+            <h1 className="text-2xl font-bold mb-4">1. 개인정보의 처리 목적</h1>
             <p className="text-gray-700">
               이에스지요는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 
               이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
@@ -80,4 +94,3 @@ export default function PrivacyPage() {
     </PageContainer>
   );
 }
-

@@ -5,6 +5,7 @@
 
 'use client';
 
+import type { Metadata } from 'next';
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
@@ -134,7 +135,6 @@ export default function TipsPage() {
           </div>
         </Card>
 
-
         {/* 절약 팁 목록 */}
         {tips.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -145,7 +145,7 @@ export default function TipsPage() {
                 <Link key={tip.id} href={`/tips/${tip.slug}`}>
                   <Card className="p-4 sm:p-5 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group border hover:border-green-300">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-2xl">{categoryConfig.icon}</span>
+                      <span className="text-2xl" role="img" aria-label={`${categoryConfig.name} 카테고리 아이콘`}>{categoryConfig.icon}</span>
                       <span className={`text-xs px-2 py-1 rounded-full bg-${categoryConfig.color}-100 text-${categoryConfig.color}-700`}>
                         {categoryConfig.name}
                       </span>
@@ -195,15 +195,13 @@ export default function TipsPage() {
           </Card>
         )}
 
-        {/* AdSense Slot 3 */}
-
-        {/* 미니 계산기 섹션 (기존 유지) */}
+        {/* 미니 계산기 섹션 */}
         <div className="mt-5 sm:mt-6 md:mt-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">빠른 계산기</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <Link href="/calculator/electricity">
               <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <div className="text-3xl mb-2">⚡</div>
+                <div className="text-3xl mb-2" role="img" aria-label="전기요금 절약 계산기 아이콘">⚡</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">전기요금 절약 계산기</h3>
                 <p className="text-sm text-gray-600">
                   전기 사용량을 줄여서 절약할 수 있는 금액을 계산합니다
@@ -212,7 +210,7 @@ export default function TipsPage() {
             </Link>
             <Link href="/calculator/gas">
               <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <div className="text-3xl mb-2">🔥</div>
+                <div className="text-3xl mb-2" role="img" aria-label="가스요금 절약 계산기 아이콘">🔥</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">가스요금 절약 계산기</h3>
                 <p className="text-sm text-gray-600">
                   가스 사용량을 줄여서 절약할 수 있는 금액을 계산합니다

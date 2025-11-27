@@ -56,6 +56,23 @@ export interface BlogPost extends ContentMetadata {
     url: string;
     description?: string;
   }>;
+  // SEO/GenEO/AEO 최적화를 위한 구조화된 데이터
+  summary?: {
+    question: string;
+    answer: string;
+  };
+  sections?: Array<{
+    title: string;
+    content: string;
+    subsections?: Array<{
+      title: string;
+      content: string;
+    }>;
+  }>;
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
 export interface TipPost extends ContentMetadata {

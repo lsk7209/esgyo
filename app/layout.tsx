@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+// 샘플 포스트 자동 등록
+import '@/lib/content/samplePosts';
 
 // Viewport 설정 (모바일 최적화)
 export const viewport: Viewport = {
@@ -68,15 +70,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head>
-        {/* Pretendard 폰트 CDN */}
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
-        />
-      </head>
+        <head>
+          {/* Pretendard 폰트 CDN */}
+          <link
+            rel="stylesheet"
+            as="style"
+            crossOrigin="anonymous"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
+          />
+          {/* RSS Feed */}
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="이에스지요 RSS 피드"
+            href={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com'}/rss.xml`}
+          />
+          {/* 네이버 사이트 인증 */}
+          <meta name="naver-site-verification" content="185f598fcbac0e203a862c1e797574d9b59a059e" />
+          {/* Google 사이트 인증 */}
+          <meta name="google-site-verification" content="Yh_pTZKAOioue4NeTTjAaKFaqsvYRaAvqkapNTBOy9k" />
+          {/* Google AdSense */}
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3050601904412736"
+            crossOrigin="anonymous"
+          />
+        </head>
       <body
         className="antialiased"
         style={{ fontFamily: 'Pretendard, var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}

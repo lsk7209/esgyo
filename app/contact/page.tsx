@@ -3,10 +3,25 @@
  * AdSense 검수: 연락처 정보 제공
  */
 
+import type { Metadata } from 'next';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+
+export const metadata: Metadata = {
+  title: '문의하기 - 이에스지요 서비스 문의 및 연락처',
+  description: '이에스지요 서비스에 대한 문의사항을 남겨주세요. 탄소중립포인트 계산기, 신청 가이드, 절약 팁 등에 대한 질문을 받고 있습니다.',
+  keywords: ['이에스지요 문의', '탄소중립포인트 문의', '서비스 문의', '연락처'],
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: '문의하기 - 이에스지요 서비스 문의 및 연락처',
+    description: '이에스지요 서비스에 대한 문의사항을 남겨주세요.',
+    url: '/contact',
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -86,4 +101,3 @@ export default function ContactPage() {
     </PageContainer>
   );
 }
-

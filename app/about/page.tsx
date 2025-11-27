@@ -3,9 +3,24 @@
  * AdSense 검수: 사이트 소개 및 신뢰성 구축
  */
 
+import type { Metadata } from 'next';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
 import { Card } from '@/components/ui/card';
+
+export const metadata: Metadata = {
+  title: '이에스지요 소개 - 탄소중립포인트 계산 및 신청 가이드 서비스',
+  description: '이에스지요는 개인 소비자를 위한 탄소중립포인트 계산 및 신청 가이드 서비스입니다. 복잡한 정부 제도를 3분 요약으로 쉽게 이해하고, 내가 받을 수 있는 포인트를 정확히 계산할 수 있도록 도와드립니다.',
+  keywords: ['이에스지요', '탄소중립포인트 계산기', '환경부 포인트', '탄소 포인트 신청', '친환경 실천'],
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: '이에스지요 소개 - 탄소중립포인트 계산 및 신청 가이드 서비스',
+    description: '이에스지요는 개인 소비자를 위한 탄소중립포인트 계산 및 신청 가이드 서비스입니다.',
+    url: '/about',
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -17,7 +32,7 @@ export default function AboutPage() {
 
       <div className="space-y-6 sm:space-y-8">
         <Card className="p-4 sm:p-6 md:p-8">
-          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">이에스지요는 무엇인가요?</h2>
+          <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">이에스지요는 무엇인가요?</h1>
           <div className="prose max-w-none space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed">
             <p>
               이에스지요는 개인 소비자를 위한 탄소중립포인트 계산 및 신청 가이드 서비스입니다. 
@@ -80,4 +95,3 @@ export default function AboutPage() {
     </PageContainer>
   );
 }
-

@@ -4,11 +4,10 @@
  * 동적 콘텐츠 포함
  */
 
-import { env } from '@/lib/env';
 import { getContentList } from '@/lib/content';
 
 export async function GET() {
-  const baseUrl = env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
   
   // 정적 라우트
   const staticRoutes = [

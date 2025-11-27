@@ -5,6 +5,7 @@
 
 'use client';
 
+import type { Metadata } from 'next';
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
@@ -146,13 +147,13 @@ export default function BlogPage() {
                       <div className="aspect-video bg-gray-100 rounded-lg mb-3 sm:mb-4 overflow-hidden">
                         <img 
                           src={post.image} 
-                          alt={post.title}
+                          alt={`${post.title} 대표 이미지`}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-lg">{categoryConfig.icon}</span>
+                      <span className="text-lg" role="img" aria-label={`${categoryConfig.name} 카테고리 아이콘`}>{categoryConfig.icon}</span>
                       <span className={`text-xs px-2 py-1 rounded-full bg-${categoryConfig.color}-100 text-${categoryConfig.color}-700`}>
                         {categoryConfig.name}
                       </span>
@@ -197,8 +198,6 @@ export default function BlogPage() {
             </p>
           </Card>
         )}
-
-        {/* AdSense Slot 3 */}
 
         {/* 인기 글 추천 */}
         <div className="mt-5 sm:mt-6 md:mt-8">

@@ -3,17 +3,31 @@
  * AEO/FAQ 최적화 구조
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
 import JSONLD from '@/components/seo/JSONLD';
-import { useMemo } from 'react';
+
+export const metadata: Metadata = {
+  title: '탄소중립포인트 신청 가이드 - 어떻게 신청하나요? | 이에스지요',
+  description: '탄소중립포인트 신청 방법을 단계별로 안내합니다. 환경부 앱 설치부터 포인트 적립까지, 복잡한 정부 제도를 3분 요약으로 쉽게 이해하고 신청하는 방법을 알려드립니다.',
+  keywords: ['탄소중립포인트 신청', '탄소중립포인트 신청 방법', '환경부 포인트 신청', '포인트 적립 방법', '탄소중립포인트 가이드'],
+  alternates: {
+    canonical: '/guide',
+  },
+  openGraph: {
+    title: '탄소중립포인트 신청 가이드 - 어떻게 신청하나요?',
+    description: '탄소중립포인트 신청 방법을 단계별로 안내합니다. 복잡한 정부 제도를 3분 요약으로 쉽게 이해하고 신청하는 방법을 알려드립니다.',
+    url: '/guide',
+  },
+};
 
 export default function GuidePage() {
   // FAQ JSON-LD for AEO
-  const faqData = useMemo(() => ({
+  const faqData = {
     mainEntity: [
       {
         '@type': 'Question',
@@ -56,7 +70,7 @@ export default function GuidePage() {
         }
       },
     ]
-  }), []);
+  };
 
   return (
     <>
@@ -133,7 +147,6 @@ export default function GuidePage() {
             </Link>
           </Card>
 
-
           <Card className="p-4 sm:p-6">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">대중교통 이용 거리는 어떻게 확인하나요?</h2>
             <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
@@ -171,7 +184,6 @@ export default function GuidePage() {
           </Card>
         </div>
 
-
         {/* CTA */}
         <div className="mt-5 sm:mt-6 md:mt-8 text-center space-y-3 sm:space-y-4">
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -191,4 +203,3 @@ export default function GuidePage() {
     </>
   );
 }
-

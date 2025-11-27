@@ -5,6 +5,7 @@
 
 'use client';
 
+import type { Metadata } from 'next';
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
@@ -58,25 +59,23 @@ export default function CalculatorMainPage() {
           </div>
           
           <Link href="/calculator/carbon-point">
-            <Card className="p-6 sm:p-8 md:p-10 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-2 border-green-200 hover:shadow-xl transition-all duration-300 cursor-pointer group">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                <div className="text-5xl sm:text-6xl md:text-7xl">{CALCULATORS[0].icon}</div>
+            <Card className="p-5 sm:p-6 md:p-8 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-2 border-green-200 hover:shadow-xl transition-all duration-300 cursor-pointer">
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div className="text-4xl sm:text-5xl md:text-6xl flex-shrink-0" role="img" aria-label="탄소중립포인트 계산기">🌱</div>
                 <div className="flex-1">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-700 transition-colors">
-                    {CALCULATORS[0].title}
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 sm:mb-3">
+                    탄소중립포인트 계산기
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                    {CALCULATORS[0].description}
+                  <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-3 sm:mb-4 leading-relaxed">
+                    텀블러 사용, 대중교통 이용 등으로 받을 수 있는 포인트와 현금화 금액을 계산합니다.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {CALCULATORS[0].keywords.slice(0, 3).map((keyword, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-3 py-1 bg-white/80 rounded-full text-xs sm:text-sm text-gray-600 font-medium"
-                      >
-                        #{keyword}
-                      </span>
-                    ))}
+                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-medium">
+                      연간 최대 7만원
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-medium">
+                      환경부 기준
+                    </span>
                   </div>
                 </div>
               </div>
@@ -84,134 +83,54 @@ export default function CalculatorMainPage() {
           </Link>
         </div>
 
-        {/* 다른 계산기 목록 */}
-        <div className="mb-5 sm:mb-6 md:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">📊 다른 계산기</h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {ACTIVE_CALCULATORS.slice(1).map((calculator) => (
-              <Link key={calculator.id} href={calculator.route}>
-                <Card className="p-5 sm:p-6 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group border hover:border-green-300">
-                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{calculator.icon}</div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-green-700 transition-colors">
-                    {calculator.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-                    {calculator.description}
-                  </p>
-                  <div className="flex items-center text-green-600 font-semibold text-sm sm:text-base group-hover:text-green-700 transition-colors">
-                    계산하기 <span className="ml-1">→</span>
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </div>
-
         {/* 카테고리별 계산기 */}
-        <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-6 sm:space-y-8 md:space-y-10">
           {/* 절약 계산기 */}
-          {CALCULATORS_BY_CATEGORY.saving.length > 0 && (
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">💰 절약 계산기</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {CALCULATORS_BY_CATEGORY.saving.map((calculator) => (
-                  <Link key={calculator.id} href={calculator.route}>
-                    <Card className={`p-5 sm:p-6 hover:shadow-lg transition-all duration-300 cursor-pointer h-full ${calculator.status === 'coming-soon' ? 'opacity-60' : ''}`}>
-                      <div className="flex items-start gap-4">
-                        <div className="text-3xl sm:text-4xl">{calculator.icon}</div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900">{calculator.title}</h3>
-                            {calculator.status === 'coming-soon' && (
-                              <span className="px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded">준비중</span>
-                            )}
-                          </div>
-                          <p className="text-sm text-gray-600 leading-relaxed">{calculator.description}</p>
-                        </div>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+          <div>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-gray-900">💰 절약 계산기</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {CALCULATORS_BY_CATEGORY.saving.filter(calc => calc.status === 'active').map((calc) => (
+                <Link key={calc.id} href={calc.route}>
+                  <Card className="p-4 sm:p-5 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3" role="img" aria-label={`${calc.title} 아이콘`}>{calc.icon}</div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-gray-900">{calc.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{calc.description}</p>
+                  </Card>
+                </Link>
+              ))}
             </div>
-          )}
+          </div>
 
           {/* 비교 계산기 */}
-          {CALCULATORS_BY_CATEGORY.comparison.length > 0 && (
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">⚖️ 비교 계산기</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {CALCULATORS_BY_CATEGORY.comparison.map((calculator) => (
-                  <Link key={calculator.id} href={calculator.route}>
-                    <Card className={`p-5 sm:p-6 hover:shadow-lg transition-all duration-300 cursor-pointer h-full ${calculator.status === 'coming-soon' ? 'opacity-60' : ''}`}>
-                      <div className="flex items-start gap-4">
-                        <div className="text-3xl sm:text-4xl">{calculator.icon}</div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900">{calculator.title}</h3>
-                            {calculator.status === 'coming-soon' && (
-                              <span className="px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded">준비중</span>
-                            )}
-                          </div>
-                          <p className="text-sm text-gray-600 leading-relaxed">{calculator.description}</p>
-                        </div>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+          <div>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-gray-900">⚖️ 비교 계산기</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {CALCULATORS_BY_CATEGORY.comparison.filter(calc => calc.status === 'active').map((calc) => (
+                <Link key={calc.id} href={calc.route}>
+                  <Card className="p-4 sm:p-5 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3" role="img" aria-label={`${calc.title} 아이콘`}>{calc.icon}</div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-gray-900">{calc.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{calc.description}</p>
+                  </Card>
+                </Link>
+              ))}
             </div>
-          )}
+          </div>
 
-          {/* 감량 계산기 */}
-          {CALCULATORS_BY_CATEGORY.reduction.length > 0 && (
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">♻️ 감량 계산기</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {CALCULATORS_BY_CATEGORY.reduction.map((calculator) => (
-                  <Link key={calculator.id} href={calculator.route}>
-                    <Card className={`p-5 sm:p-6 hover:shadow-lg transition-all duration-300 cursor-pointer h-full ${calculator.status === 'coming-soon' ? 'opacity-60' : ''}`}>
-                      <div className="flex items-start gap-4">
-                        <div className="text-3xl sm:text-4xl">{calculator.icon}</div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900">{calculator.title}</h3>
-                            {calculator.status === 'coming-soon' && (
-                              <span className="px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded">준비중</span>
-                            )}
-                          </div>
-                          <p className="text-sm text-gray-600 leading-relaxed">{calculator.description}</p>
-                        </div>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+          {/* 감축 계산기 */}
+          <div>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-gray-900">♻️ 감축 계산기</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {CALCULATORS_BY_CATEGORY.reduction.filter(calc => calc.status === 'active').map((calc) => (
+                <Link key={calc.id} href={calc.route}>
+                  <Card className="p-4 sm:p-5 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3" role="img" aria-label={`${calc.title} 아이콘`}>{calc.icon}</div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-gray-900">{calc.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{calc.description}</p>
+                  </Card>
+                </Link>
+              ))}
             </div>
-          )}
-        </div>
-
-        {/* 관련 가이드 섹션 */}
-        <div className="mt-8 sm:mt-12">
-          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">더 알아보기</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <Link href="/guide">
-              <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <h3 className="text-lg sm:text-xl font-bold mb-2">📖 신청 가이드</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  탄소중립포인트 신청 방법과 제휴 은행·카드사 안내
-                </p>
-              </Card>
-            </Link>
-            <Link href="/tips">
-              <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <h3 className="text-lg sm:text-xl font-bold mb-2">💡 절약 팁</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  일상 속에서 쉽게 실천할 수 있는 절약 팁과 추가 포인트 받는 방법
-                </p>
-              </Card>
-            </Link>
           </div>
         </div>
       </PageContainer>

@@ -29,16 +29,22 @@ export async function generateMetadata({ params }: TipPostPageProps): Promise<Me
     };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://esgyo.com';
+  
   return {
     title: tip.metaTitle || tip.title,
     description: tip.metaDescription || tip.description,
     keywords: tip.keywords,
+    alternates: {
+      canonical: `${baseUrl}/tips/${tip.slug}`,
+    },
     openGraph: {
       title: tip.metaTitle || tip.title,
       description: tip.metaDescription || tip.description,
       type: 'article',
       publishedTime: tip.publishedAt,
       modifiedTime: tip.updatedAt,
+      url: `${baseUrl}/tips/${tip.slug}`,
     },
   };
 }
