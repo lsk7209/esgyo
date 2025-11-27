@@ -5,6 +5,7 @@
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { CONTENT_CATEGORIES } from '@/constants/contentCategories';
+import { getBlogPostIcon, getBlogPostGradient, getBlogPostHoverGradient } from '@/lib/blogIcons';
 import type { BlogPost } from '@/types/content';
 
 interface BlogPostListProps {
@@ -29,10 +30,10 @@ export default function BlogPostList({ posts }: BlogPostListProps) {
         return (
           <Link key={post.id} href={`/blog/${post.slug}`}>
             <Card className="p-4 sm:p-5 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group border hover:border-green-300">
-              {/* 이미지 대체: 인터랙티브 아이콘 애니메이션 */}
-              <div className="aspect-video bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg mb-3 sm:mb-4 overflow-hidden flex items-center justify-center group-hover:from-green-100 group-hover:to-emerald-100 transition-all duration-300">
+              {/* 이미지 대체: 포스트별 고유 인터랙티브 아이콘 애니메이션 */}
+              <div className={`aspect-video bg-gradient-to-br ${getBlogPostGradient(post)} rounded-lg mb-3 sm:mb-4 overflow-hidden flex items-center justify-center group-hover:${getBlogPostHoverGradient(post)} transition-all duration-300`}>
                 <div className="text-6xl transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
-                  {categoryConfig.icon}
+                  {getBlogPostIcon(post)}
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-2">
